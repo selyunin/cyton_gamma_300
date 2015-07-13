@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="cyton_gamma_300">
-  <xacro:include filename="$(find cyton_gamma_300)/cyton_gamma_300_macros.urdf.xacro" />
+  <xacro:include filename="$(find cyton_gamma_300_description)/cyton_gamma_300_macros.urdf.xacro" />
 
   <xacro:base_footprint prefix="" />
   <xacro:cyton_gamma_300 prefix="" virtual_ee="true" />
