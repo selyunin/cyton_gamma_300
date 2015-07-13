@@ -107,6 +107,17 @@ catkin_package(
 #   ${catkin_LIBRARIES}
 # )
 
+file(GLOB xacro_files ${CMAKE_CURRENT_SOURCE_DIR}/cyton_gamma_300.urdf.xacro)
+
+foreach(file ${xacro_files})
+    string(REGEX MATCH "(.*)[.]xacro$" unused ${file})
+    set(outpath ${CMAKE_MATCH_1})
+    xacro_add_xacro_file(${file} ${outpath})
+    list(APPEND world_files ${outpath})
+endforeach(file)
+
+add_custom_target(media_files ALL DEPENDS ${world_files})
+
 #############
 ## Install ##
 #############
