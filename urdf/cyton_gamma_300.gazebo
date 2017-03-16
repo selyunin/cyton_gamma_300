@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<robot>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/cyton_gamma_300</robotNamespace>
+	  <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType> 
+    </plugin>
+  </gazebo>
+
+  <!-- Base of robot here -->
+  <!-- ########################################### -->
+  <!-- #######! Base Link !####################### -->
+  <!-- ########################################### -->
+  <gazebo reference="base_link">
+	<selfCollide>true</selfCollide>
+	<material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- First motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Shoulder Roll Joint !############# -->
+  <!-- ########################################### -->
+  <gazebo reference="shoulder_roll_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Shoulder Roll Link !############## -->
+  <!-- ########################################### -->
+  <gazebo reference="shoulder_roll">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- Second motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Shoulder Pitch Joint !############ -->
+  <!-- ########################################### -->
+  <gazebo reference="shoulder_pitch_joint">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Shoulder Pitch Link !############# -->
+  <!-- ########################################### -->
+  <gazebo reference="shoulder_pitch">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- Third motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Elbow Roll Joint !################ -->
+  <!-- ########################################### -->
+  <gazebo reference="elbow_roll_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Elbow Roll Link !################# -->
+  <!-- ########################################### -->
+  <gazebo reference="elbow_roll">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- Fourth motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Elbow Pitch Joint !############### -->
+  <!-- ########################################### -->
+  <gazebo reference="elbow_pitch_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Elbow Pitch Link !################ -->
+  <!-- ########################################### -->
+  <gazebo reference="elbow_pitch">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- Fifth motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Elbow Yaw Joint !################# -->
+  <!-- ########################################### -->
+  <gazebo reference="elbow_yaw_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Elbow Yaw Link !################## -->
+  <!-- ########################################### -->
+  <gazebo reference="elbow_yaw">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- Sixth motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Wrist Pitch Joint !############### -->
+  <!-- ########################################### -->
+  <gazebo reference="wrist_pitch_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Wrist Pitch Link !################ -->
+  <!-- ########################################### -->
+  <gazebo reference="wrist_pitch">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+  <!-- Seventh motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Wrist Roll Joint !################ -->
+  <!-- ########################################### -->
+  <gazebo reference="wrist_roll_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Wrist Roll Link !################# -->
+  <!-- ########################################### -->
+  <gazebo reference="wrist_roll">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- Eigth motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Gripper Finger1 Joint !########### -->
+  <!-- ########################################### -->
+  <gazebo reference="gripper_finger1_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Gripper Finger1 Link !############ -->
+  <!-- ########################################### -->
+  <gazebo reference="gripper_finger1">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+  <!-- Eighth motor located here -->
+  <!-- ########################################### -->
+  <!-- #######! Gripper Finger2 Joint !########### -->
+  <!-- ########################################### -->
+  <gazebo reference="gripper_finger2_joint">
+    <material>Gazebo/Grey</material>
+  </gazebo>
+  <!-- ########################################### -->
+  <!-- #######! Gripper Finger2 Link !############ -->
+  <!-- ########################################### -->
+  <gazebo reference="gripper_finger2">
+	<selfCollide>true</selfCollide>
+    <material>Gazebo/Grey</material>
+  </gazebo>
+
+
+</robot>
