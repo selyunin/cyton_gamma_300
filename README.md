@@ -36,8 +36,8 @@ distribution of ROS (as of mid March 2017).
 * `cyton_gamma_300_moveit`: configuration files of the 
    setup assistant to enable MoveIt functionality.
 
-These are the core packages to enable motion planning for the Cyton
-Gamma 300 arm. 
+The aforementioned `cyton_gamma_300_*` packages enable 
+motion planning for the Cyton Gamma 300 arm. 
 These packages are **not** self-contained and the dependencies should
 be met to successfully run the software.
 
@@ -51,4 +51,13 @@ be met to successfully run the software.
 
 ### <a name="rationale"   ></a>7. Rationale
 
+As already quite a lot of related sources exist on the
+[github](https://github.com/search?utf8=%E2%9C%93&q=cyton+gamma+300), the
+goal is 
+(i) provide minimal functional example, 
+(ii) to document the steps.
+
 ### <a name="maintainer"  ></a>8. Maintainer
+
+[Konstantin Selyunin](http://selyunin.com/), for
+suggestions/questions/comments please contact: selyunin [dot] k [dot] v [at] gmail [dot] com
