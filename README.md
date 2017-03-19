@@ -47,6 +47,10 @@ be met to successfully run the software.
 
 ### <a name="tutorial"    ></a>5. Tutorial
 
+1. Visualize the URDF model in RViz:
+
+`roslaunch cyton_gamma_300_description urdf_in_rviz.launch`
+
 ### <a name="related"     ></a>6. Related Sources
 
 ### <a name="rationale"   ></a>7. Rationale
