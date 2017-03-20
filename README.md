@@ -30,7 +30,7 @@ distribution of ROS (as of mid March 2017).
 
 * `cyton_gamma_300_gazebo`: gazebo simulation of the robot;
 
-* `cyton_gamma_300_control`: controllers for actuating gazebo model or
+* `cyton_gamma_300_controllers`: controllers for actuating gazebo model or
    the real robot using MoveIt framework;
 
 * `cyton_gamma_300_moveit`: configuration files of the 
@@ -50,6 +50,12 @@ be met to successfully run the software.
 1. Visualize the URDF model in RViz:
 
 `roslaunch cyton_gamma_300_description urdf_in_rviz.launch`
+
+2. Spawn the URDF model in Gazebo:
+
+`roslaunch cyton_gamma_300_gazebo gazebo_world.launch`
+
+The model is subject to gravity forces and falls down from its original position
 
 ### <a name="related"     ></a>6. Related Sources
 

@@ -6,6 +6,12 @@
 	<!-- Import Rviz colors -->
 	<xacro:include filename="$(find cyton_gamma_300_description)/urdf/materials.xacro" />
 
+
+	<!-- ########################################### -->
+	<!-- #######! PROPERTIES !###################### -->
+	<!-- ########################################### -->
+	<xacro:property name="transmission" value="$(arg transmission)" />
+
 	<!-- Used for fixing robot to Gazebo 'base_link' -->
 	<link name="world">
 	</link>
@@ -465,15 +471,15 @@
 
   <xacro:cyton_gamma_300 virtual_ee="true" />
 
-  <xacro:macro name="include_transmission" params="transmission_type">
-	<xacro:if value="${transmission_type == 'position'}">
+  <xacro:macro name="include_transmission" >
+	<xacro:if value="${transmission == 'position'}">
 		<xacro:include filename="$(find cyton_gamma_300_description)/urdf/transmissions_positionjointinterface.xml" />  
 	</xacro:if>
-	<xacro:if value="${transmission_type == 'effort'}">
+	<xacro:if value="${transmission == 'effort'}">
 	   <xacro:include filename="$(find cyton_gamma_300_description)/urdf/transmissions_effortjointinterface.xml" />  
 	</xacro:if>
   </xacro:macro>
 
-  <xacro:include_transmission transmission_type="position" />
+  <xacro:include_transmission  /> 
 
 </robot>
