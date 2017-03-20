@@ -57,6 +57,10 @@ be met to successfully run the software.
 
 The model is subject to gravity forces and falls down from its original position
 
+3. In simulation we can test different types of controllers:
+
+`roslaunch cyton_gamma_300_controllers gazebo_effort_controllers.launch`
+
 ### <a name="related"     ></a>6. Related Sources
 
 ### <a name="rationale"   ></a>7. Rationale
