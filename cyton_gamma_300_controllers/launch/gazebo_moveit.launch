@@ -1,0 +1,23 @@
+<launch>
+
+  <!-- Launch Gazebo  -->
+  <include file="$(find cyton_gamma_300_gazebo)/launch/gazebo_world.launch" >   
+	<arg name="transmission" value="position" />
+  </include>
+
+  <!-- ros_control seven dof arm launch file -->
+  <include file="$(find cyton_gamma_300_controllers)/launch/gazebo_moveit_joint_state_controller.launch" />   
+
+  <!-- ros_control trajectory control dof arm launch file -->
+  <include file="$(find cyton_gamma_300_controllers)/launch/gazebo_moveit_joint_trajectory_controller.launch" />   
+
+  <!-- moveit launch file -->
+  <include file="$(find cyton_gamma_300_moveit)/launch/gazebo_moveit_planning_exec_minimal.launch" />
+
+  <!-- We do not have a robot connected, so publish fake joint states -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="/use_gui" value="false"/>
+    <rosparam param="/source_list">[/cyton_gamma_300/joint_states]</rosparam>
+  </node>
+
+</launch>
