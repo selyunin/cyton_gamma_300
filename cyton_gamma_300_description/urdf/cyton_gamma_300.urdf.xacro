@@ -101,7 +101,7 @@
         <joint name="shoulder_pitch_joint" type="revolute">
             <parent link="shoulder_roll" />
             <child link="shoulder_pitch" />
-            <origin xyz="0 0 0.063" rpy="0.0 0 0" />
+            <origin xyz="0 0 0.063" rpy="1.2 0 0" />
             <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>

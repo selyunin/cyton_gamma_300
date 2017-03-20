@@ -1,7 +1,7 @@
-MoveIt setup assistant generates a bunch of different files, 
+MoveIt setup assistant generates quite a lot of different files, 
 and the purpose of this document is to capture the sequence how 
-these files are called.
-
+these files are called and what are the dependencies between 
+these files.
 
 +-- gazebo_moveit_planning_exec_minimal.launch
 |

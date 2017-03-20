@@ -80,6 +80,17 @@ and execute a plan in [Gazebo](http://gazebosim.org/):
 
 `roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
 
+5. Run MoveIt on the actual robot:
+
+* Make sure you are in the
+[dialout](http://askubuntu.com/questions/58119/changing-permissions-on-serial-port) 
+group or you have read/write access to `/dev/ttyUSB0` 
+(assuming that `/dev/ttyUSB0` is your 
+[dynamixel bus](http://support.robotis.com/en/product/auxdevice/interface/usb2dxl_manual.htm) 
+address)
+
+`roslaunch cyton_gamma_300_controllers robot_moveit.launch`
+
 ### <a name="related"     ></a>6. Related Sources
 
 ### <a name="rationale"   ></a>7. Rationale

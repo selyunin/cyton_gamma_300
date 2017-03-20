@@ -2,6 +2,7 @@
 
   <include file="$(find cyton_gamma_300_moveit)/launch/planning_context.launch" />
 
+  <arg name="target_device" default="gazebo" />
   <!-- GDB Debug Option -->
   <arg name="debug" default="false" />
   <arg unless="$(arg debug)" name="launch_prefix" value="" />
@@ -31,7 +32,7 @@
     <arg name="moveit_manage_controllers" value="true" />
     <arg name="moveit_controller_manager" value="cyton_gamma_300" unless="$(arg fake_execution)"/>
     <arg name="moveit_controller_manager" value="fake" if="$(arg fake_execution)"/>
-    <arg name="target_device" value="gazebo" />
+    <arg name="target_device" value="$(arg target_device)" />
   </include>
 
   <!-- Sensors Functionality -->
