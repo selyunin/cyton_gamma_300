@@ -59,20 +59,21 @@ The model is subject to gravity forces and falls down from its original position
 
 3. Test different types of 
 [ros\_controllers](https://github.com/ros-controls/ros_controllers)
-in gazebo.
+in Gazebo simulation:
 
-E.g. `JointPositionController` from `effort_controllers`:
+* E.g. `JointPositionController` from `effort_controllers`:
 
 `roslaunch cyton_gamma_300_controllers gazebo_effort_controllers.launch`
 
-Or another example of `JointPositionController` from `position_controllers`:
+* Or another example of `JointPositionController` from `position_controllers`:
 
 `roslaunch cyton_gamma_300_controllers gazebo_position_controllers.launch`
 
-`JointTrajectoryController` from `position_controllers` allows to control groups 
+* `JointTrajectoryController` from `position_controllers` allows to control groups 
 of joints:
 
 `roslaunch cyton_gamma_300_controllers gazebo_joint_trajectory_controllers.launch`
+
 
 
 ### <a name="related"     ></a>6. Related Sources
