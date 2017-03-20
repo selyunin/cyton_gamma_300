@@ -74,8 +74,9 @@ of joints:
 
 `roslaunch cyton_gamma_300_controllers gazebo_joint_trajectory_controllers.launch`
 
-4. Specify a target pose in [RViz](http://wiki.ros.org/rviz), plan in MoveIt! using 
-[OMPL](http://ompl.kavrakilab.org/) and execute a plan in Gazebo:
+4. Specify a target pose in [RViz](http://wiki.ros.org/rviz), plan in 
+[MoveIt!](http://moveit.ros.org/) using [OMPL](http://ompl.kavrakilab.org/) 
+and execute a plan in [Gazebo](http://gazebosim.org/):
 
 `roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
 
