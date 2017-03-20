@@ -1,0 +1,29 @@
+cyton_gamma_300:
+  arm_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - shoulder_roll_joint
+      - shoulder_pitch_joint
+      - elbow_roll_joint
+      - elbow_pitch_joint
+      - elbow_yaw_joint
+      - wrist_pitch_joint
+      - wrist_roll_joint
+
+    gains:
+      shoulder_roll_joint:        {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      shoulder_pitch_joint:       {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      elbow_roll_joint:           {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      elbow_pitch_joint:          {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      elbow_yaw_joint:            {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      wrist_pitch_joint:          {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+      wrist_roll_joint:           {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+
+  gripper_controller:
+    type: "position_controllers/JointTrajectoryController"
+    joints:
+      - gripper_finger1_joint
+        #- gripper_finger2_joint
+    gains:
+      gripper_finger1_joint:      {p: 50.0, d: 1.0, i: 0.01, i_clamp: 1.0}
+      #gripper_finger2_joint:      {p: 50.0, d: 1.0, i: 0.01, i_clamp: 1.0}
