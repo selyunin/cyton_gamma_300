@@ -1,0 +1,15 @@
+<launch>
+
+ <include file="$(find cyton_gamma_300_moveit)/launch/cyton_gamma_300_moveit_controller_manager.launch.xml" />
+
+ <include file="$(find cyton_gamma_300_moveit)/launch/move_group.launch">
+  <arg name="publish_monitored_planning_scene" value="true" />
+  <arg name="target_device" value="robot" />
+ </include>
+
+ <include file="$(find cyton_gamma_300_moveit)/launch/moveit_rviz.launch"/>
+
+ <!-- <include file="$(find moveit_config)/launch/default_warehouse_db.launch" /> -->
+ <!-- <param name="trajectory_execution/execution_duration_monitoring" value="false" /> -->
+
+</launch>

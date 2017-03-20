@@ -1,0 +1,26 @@
+<launch>
+
+	<!-- Load the URDF into the ROS Parameter Server -->
+	<arg name="transmission" default="position"/>
+	<param name="robot_description" 
+	  command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
+			   transmission:=$(arg transmission)" />
+
+	<rosparam file="$(find cyton_gamma_300_controllers)/config/robot_gripper_dynamixel_controller.yaml" command="load"/>
+    
+	<node name="two_cyton_controller_spawner" pkg="dynamixel_controllers"
+		  type="controller_spawner.py" ns="/cyton_gamma_300" 
+		  args="--manager=gripper_manager --port port_0 --type=simple
+				gripper_position_controller"
+		output="screen"/>
+
+    <node name="two_cyton_action_controller_spawner" pkg="dynamixel_controllers"
+		  type="controller_spawner.py" ns="/cyton_gamma_300" 
+		  args="--manager=gripper_manager
+				--type=meta
+				gripper_controller
+				gripper_position_controller"
+		output="screen"/>
+        
+</launch>
+

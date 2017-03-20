@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="dynamixel_joint_state" pkg="cyton_gamma_300_controllers" 
+		type="dynamixel_joint_state_publisher.py" respawn="false"
+		output="screen" ns="/cyton_gamma_300" args=""/>
+
+</launch>

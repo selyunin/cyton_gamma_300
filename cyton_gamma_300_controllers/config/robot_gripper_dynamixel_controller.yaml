@@ -1,0 +1,27 @@
+dynamixels: ['gripper_finger1_joint']
+
+cyton_gamma_300:
+
+  gripper_controller:
+    controller:
+      package: dynamixel_controllers
+      module: joint_trajectory_action_controller
+      type: JointTrajectoryActionController
+    joint_trajectory_action_node:
+      min_velocity: 0.25
+      constraints:
+        goal_time: 30.0
+
+  gripper_position_controller:
+    controller:
+      package: dynamixel_controllers
+      module: joint_position_controller
+      type: JointPositionController
+    joint_name: gripper_finger1_joint
+    joint_speed: 5.0
+    motor:
+      id: 7
+      init: 2831
+      min: 512
+      max: 3450
+
