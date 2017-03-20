@@ -1,0 +1,76 @@
+cyton_gamma_300:
+  
+  # Position Controllers ---------------------------------------
+  ########################################### 
+  ####! Shoulder Roll: Position Controller !# 
+  ########################################### 
+  shoulder_roll_position_controller:
+    type: position_controllers/JointPositionController
+    joint: shoulder_roll_joint
+    gains: {p: 1000.0, i: 0.0, d: 0.1, i_clamp: 0.0}
+
+  ###########################################
+  #! Shoulder Pitch: Position Controller !###
+  ###########################################
+  shoulder_pitch_position_controller:
+    type: position_controllers/JointPositionController
+    joint: shoulder_pitch_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  ###########################################
+  #! Elbow Roll: Position Controller !#######
+  ###########################################
+  elbow_roll_position_controller:
+    type: position_controllers/JointPositionController
+    joint: elbow_roll_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  ###########################################
+  #! Elbow Pitch: Position Controller !######
+  ###########################################
+  elbow_pitch_position_controller:
+    type: position_controllers/JointPositionController
+    joint: elbow_pitch_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  ###########################################
+  #! Elbow Yaw: Transmission Interface !#####
+  ###########################################
+  elbow_yaw_position_controller:
+    type: position_controllers/JointPositionController
+    joint: elbow_yaw_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  ###########################################
+  #! Wrist Pitch: Transmission Interface !###
+  ###########################################
+  wrist_pitch_position_controller:
+    type: position_controllers/JointPositionController
+    joint: wrist_pitch_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+
+  ###########################################
+  #! Wrist Roll: Transmission Interface !####
+  ###########################################
+  wrist_roll_position_controller:
+    type: position_controllers/JointPositionController
+    joint: wrist_roll_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  ###########################################
+  #! Gripper Finger1: Transmission Interface 
+  ###########################################
+  gripper_finger1_position_controller:
+    type: position_controllers/JointPositionController
+    joint: gripper_finger1_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+
+  ###########################################
+  #! Gripper Finger2: Transmission Interface 
+  ###########################################
+  #gripper_finger2_position_controller:
+  #type: position_controllers/JointPositionController
+  #joint: gripper_finger2_joint
+  # pid: {p: 100.0, i: 0.01, d: 10.0}
+
