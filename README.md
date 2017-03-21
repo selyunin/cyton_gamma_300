@@ -1,4 +1,4 @@
-Cyton Gamma 300 (GazeboSim/Real robot + Moveit) 
+Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt) 
 ============================================
 
 1. [Description](#description)
@@ -45,6 +45,15 @@ be met to successfully run the software.
 
 ### <a name="quickstart"  ></a>4. Quick start
 
+1. In Gazebo simulation:
+
+`roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
+
+2. On the real robot:
+
+`roslaunch cyton_gamma_300_controllers robot_moveit.launch`
+
+
 ### <a name="tutorial"    ></a>5. Tutorial
 
 1. Visualize the URDF model in RViz:
@@ -87,19 +96,24 @@ and execute a plan in [Gazebo](http://gazebosim.org/):
 group or you have read/write access to `/dev/ttyUSB0` 
 (assuming that `/dev/ttyUSB0` is your 
 [dynamixel bus](http://support.robotis.com/en/product/auxdevice/interface/usb2dxl_manual.htm) 
-address)
+address).
+The following launch file will start everything one needs to plan and
+execute the plan on the actual robot:
 
 `roslaunch cyton_gamma_300_controllers robot_moveit.launch`
+
+* Alternatively, it is possible to launch the same functionality
+  separately (e.g. for debugging purposes):
 
 ### <a name="related"     ></a>6. Related Sources
 
 ### <a name="rationale"   ></a>7. Rationale
 
 As already quite a lot of related sources exist on the
-[github](https://github.com/search?utf8=%E2%9C%93&q=cyton+gamma+300), the
-goal is 
-(i) provide minimal functional example, 
-(ii) to document the steps.
+[github](https://github.com/search?utf8=%E2%9C%93&q=cyton+gamma+300), 
+the goal is 
+(i) provide a functional step-by-step tutorial, 
+(ii) to document the working setup for the current version of ROS.
 
 ### <a name="maintainer"  ></a>8. Maintainer
 

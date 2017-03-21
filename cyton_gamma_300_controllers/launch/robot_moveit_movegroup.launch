@@ -1,0 +1,30 @@
+<launch>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <arg name="transmission" default="position"/>
+  <param name="robot_description" 
+	command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
+			 transmission:=$(arg transmission)" />
+
+  <include file="$(find cyton_gamma_300_controllers)/launch/robot_dynamixel_joint_state.launch" /> 
+
+
+  <!-- moveit launch file -->
+  <include file="$(find cyton_gamma_300_moveit)/launch/robot_moveit_planning_exec_minimal.launch" />
+
+  <param name="move_group/trajectory_execution/allowed_execution_duration_scaling" value="3.0"/>
+
+  <!-- We do not have a robot connected, so publish fake joint states -->
+  <!-- <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"> -->
+	<!-- <param name="/use_gui" value="false"/> -->
+	<!-- <rosparam param="/source_list">[/cyton_gamma_300/joint_states]</rosparam> -->
+	<!-- <rosparam param="/source_list">[/move_group/fake_controller_joint_states]</rosparam> --> 
+	<!-- </node> -->
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+	<remap from="/cyton_gamma_300/cyton_joint_trajectory_action_controller/state" to="/cyton_gamma_300/joint_states" />
+  </node>
+
+</launch>
