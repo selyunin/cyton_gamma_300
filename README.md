@@ -43,6 +43,15 @@ be met to successfully run the software.
 
 ### <a name="dependencies"></a>3. Dependencies
 
+First, one needs a full installation of ROS, otherwise 
+some other packages might be missing 
+(refer [here](http://wiki.ros.org/kinetic/Installation/Ubuntu) for the full ROS
+installation instructions). 
+Second, one needs to install [MoveIt](http://moveit.ros.org/install/). 
+Third, for sensing one needs to install OpenCV 
+(refer [here](http://milq.github.io/install-opencv-ubuntu-debian/) for
+the installation instructions).
+
 * [`dynamixel_motor`](http://wiki.ros.org/dynamixel_motor)
 
 * [`ros_control`](http://wiki.ros.org/ros_control)
@@ -52,6 +61,8 @@ be met to successfully run the software.
 * [`control_toolbox`](http://wiki.ros.org/control_toolbox)
 
 * [`realtime_tools`](http://wiki.ros.org/realtime_tools)
+
+* [`warehouse_ros`](http://wiki.ros.org/warehouse_ros)
 
 ### <a name="quickstart"  ></a>4. Quick start: Plan & Execute
 
