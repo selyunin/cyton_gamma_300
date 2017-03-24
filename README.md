@@ -43,7 +43,9 @@ be met to successfully run the software.
 
 ### <a name="dependencies"></a>3. Dependencies
 
-### <a name="quickstart"  ></a>4. Quick start
+
+
+### <a name="quickstart"  ></a>4. Quick start: Plan & Execute
 
 1. In Gazebo simulation:
 
@@ -104,6 +106,32 @@ execute the plan on the actual robot:
 
 * Alternatively, it is possible to launch the same functionality
   separately (e.g. for debugging purposes):
+
+First, we need to run a `controller_manager.py` script from `dynamixel` 
+package that queries the stepper motors on the bus and initializes them. 
+We logically separate motors 0-6 for the arm (or *manipulator* planning group) 
+and the stepper motor 7 for the gripper (*gripper* planning group). 
+We start initialization with the manipulator planning group:
+
+`roslaunch cyton_gamma_300_controllers robot_manipulator_manager.launch` 
+
+Second, we need to spawn controllers that would activate the
+manipulator joints (i.e. motors 0-6 on the bus):
+
+`roslaunch cyton_gamma_300_controllers robot_manipulator_controller_spawner.launch`
+
+Third, we need to repeat steps one and two for the gripper:
+
+`roslaunch cyton_gamma_300_controllers robot_gripper_manager.launch` 
+
+`roslaunch cyton_gamma_300_controllers robot_gripper_controller_spawner.launch`
+
+Finally, we bring up MoveIt:
+
+`roslaunch cyton_gamma_300_controllers robot_moveit_movegroup.launch`
+
+
+
 
 ### <a name="related"     ></a>6. Related Sources
 
