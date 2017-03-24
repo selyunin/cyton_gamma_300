@@ -25,13 +25,13 @@ distribution of ROS (as of mid March 2017).
 
 ### <a name="packages"></a>2. Packages
 
+* `cyton_gamma_300_controllers`: controllers for actuating gazebo model or
+   the real robot using MoveIt framework;
+
 * `cyton_gamma_300_description`: [xacro](http://wiki.ros.org/xacro) description 
    of the [URDF](http://wiki.ros.org/urdf) robot model;
 
 * `cyton_gamma_300_gazebo`: gazebo simulation of the robot;
-
-* `cyton_gamma_300_controllers`: controllers for actuating gazebo model or
-   the real robot using MoveIt framework;
 
 * `cyton_gamma_300_moveit`: configuration files of the 
    setup assistant to enable MoveIt functionality.
@@ -50,7 +50,9 @@ installation instructions).
 Second, one needs to install [MoveIt](http://moveit.ros.org/install/). 
 Third, for sensing one needs to install OpenCV 
 (refer [here](http://milq.github.io/install-opencv-ubuntu-debian/) for
-the installation instructions).
+the installation instructions). Finally, these packages are
+additionally required to be in your ROS workspace (or on your
+`$ROS_PACKAGE_PATH`):
 
 * [`dynamixel_motor`](http://wiki.ros.org/dynamixel_motor)
 
@@ -63,6 +65,11 @@ the installation instructions).
 * [`realtime_tools`](http://wiki.ros.org/realtime_tools)
 
 * [`warehouse_ros`](http://wiki.ros.org/warehouse_ros)
+
+Fortunately, one can use available ROS tools to install missing
+dependencies:
+
+`rosdep install --from-paths WORKSPACE --ignore-src --rosdistro=ROSDISTRO`
 
 ### <a name="quickstart"  ></a>4. Quick start: Plan & Execute
 
