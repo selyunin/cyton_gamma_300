@@ -157,9 +157,18 @@ Finally, we bring up MoveIt:
 `roslaunch cyton_gamma_300_controllers robot_moveit_movegroup.launch`
 
 
-
-
 ### <a name="related"     ></a>6. Related Sources
+
+[Andras Fekete](https://github.com/bandi13) pioneered in his 
+[work](http://www.bandilabs.com/2014/11/13/get-cyton-gamma-300-working-ros/) 
+moving Cyton Gamma 300 arm to open source rails
+from manufacturer's proprietary software. I must confess that I was not able to
+run his code due to some errors, still he was a source of inspirations 
+for the follow up projects.
+[Tyler Slabinski](https://github.com/Slabity) created a beautiful
+meshes of the Cyton Gamma 300 arm and wrote the URDF file that others
+extensively use.
+
 
 ### <a name="rationale"   ></a>7. Rationale
 
