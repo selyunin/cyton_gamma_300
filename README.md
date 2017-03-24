@@ -43,7 +43,15 @@ be met to successfully run the software.
 
 ### <a name="dependencies"></a>3. Dependencies
 
+* [`dynamixel_motor`](http://wiki.ros.org/dynamixel_motor)
 
+* [`ros_control`](http://wiki.ros.org/ros_control)
+
+* [`ros_controllers`](http://wiki.ros.org/ros_controllers)
+
+* [`control_toolbox`](http://wiki.ros.org/control_toolbox)
+
+* [`realtime_tools`](http://wiki.ros.org/realtime_tools)
 
 ### <a name="quickstart"  ></a>4. Quick start: Plan & Execute
 
@@ -109,8 +117,8 @@ execute the plan on the actual robot:
 
 First, we need to run a `controller_manager.py` script from `dynamixel` 
 package that queries the stepper motors on the bus and initializes them. 
-We logically separate motors 0-6 for the arm (or *manipulator* planning group) 
-and the stepper motor 7 for the gripper (*gripper* planning group). 
+We logically separate motors 0-6 for the arm (or the *manipulator* planning group) 
+and the stepper motor 7 for the gripper (the *gripper* planning group). 
 We start initialization with the manipulator planning group:
 
 `roslaunch cyton_gamma_300_controllers robot_manipulator_manager.launch` 
