@@ -12,16 +12,10 @@
       <uri>model://sun</uri>
     </include>
 
-	<!-- <gui fullscreen='0'> -->
-	  <!-- <camera name='user_camera'> -->
-		<!-- <pose>4.927360 -4.376610 3.740080 0.000000 0.275643 2.356190</pose> -->
-		<!-- <view_controller>orbit</view_controller> -->
-		<!-- </camera> -->
-	  <!-- </gui> -->
-
-   <gui>
+	 <gui fullscreen='0'>
 	  <camera name='user_camera'>
-        <pose>0.127360 -0.376610 0.740080 0.000000 0.275643 2.356190</pose>
+        <pose>0.800000 -0.800000 0.4000 0.000000 0.275643 2.356190</pose>
+		 <view_controller>orbit</view_controller>
       </camera>
     </gui>    
 
