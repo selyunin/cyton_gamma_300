@@ -3,6 +3,7 @@
  <include file="$(find cyton_gamma_300_moveit)/launch/move_group.launch">
   <arg name="publish_monitored_planning_scene" value="true" />
   <arg name="target_device" value="gazebo" />
+  <arg name="simulation" value="true" />
  </include>
 
  <include file="$(find cyton_gamma_300_moveit)/launch/moveit_rviz.launch"/>

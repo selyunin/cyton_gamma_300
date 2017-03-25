@@ -7,11 +7,21 @@
 
   <!-- Position controller interface to actuate joints in gazebo -->
   <arg name="transmission" default="position"/>
+  <arg name="simulation" default="false"/>
 
   <!-- Load universal robot description format (URDF) -->
   <param name="robot_description" 
 	command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
-			 transmission:=$(arg transmission)" />
+			  transmission:=$(arg transmission)
+			  simulation:=$(arg simulation)
+			  shoulder_roll_joint_init_rpy:='0.0 0.0 0.0'
+			  shoulder_pitch_joint_init_rpy:='0.0 0.0 0.0'
+			  elbow_roll_joint_init_rpy:='0.0 0.0 0.0'
+			  elbow_pitch_joint_init_rpy:='0.0 0.0 0.0'
+			  elbow_yaw_joint_init_rpy:='0.0 0.0 0.0'
+			  wrist_pitch_joint_init_rpy:='0.0 0.0 0.0'
+			  wrist_roll_joint_init_rpy:='0.0 0.0 0.0'
+			  " />
 
   <!-- The semantic description that corresponds to the URDF -->
   <param name="$(arg robot_description)_semantic" textfile="$(find cyton_gamma_300_moveit)/config/cyton_gamma_300.srdf" /> 
