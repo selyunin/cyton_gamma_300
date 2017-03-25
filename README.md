@@ -168,7 +168,13 @@ for the follow up projects.
 [Tyler Slabinski](https://github.com/Slabity) created a beautiful
 meshes of the Cyton Gamma 300 arm and wrote the URDF file that others
 extensively use.
-
+[AssistiveRoboticsUNH](https://github.com/AssistiveRoboticsUNH) and
+[Andreas Lydakis](https://bitbucket.org/AndLydakis/) provided respectively
+[here](https://github.com/AssistiveRoboticsUNH/cyton_gamma_300_ROS)
+and 
+[here](https://bitbucket.org/AndLydakis/cyton_gamma_300_ros) 
+repositories for running the actual robot using MoveIt, 
+but did not include Gazebo support for simulations of Cyton Gamma 300.
 
 ### <a name="rationale"   ></a>7. Rationale
 
