@@ -2,7 +2,17 @@
 	<arg name="model" />
 	<!-- Parsing xacro and setting robot_description parameter -->
 	<param name="robot_description" 
-		   command="$(find xacro)/xacro --inorder $(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro" />
+	  command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
+				transmission:=none
+				simulation:=true
+				shoulder_roll_joint_init_rpy:='0.0 0.0 0.0'
+				shoulder_pitch_joint_init_rpy:='0.0 0.0 0.0'
+				elbow_roll_joint_init_rpy:='0.0 0.0 0.0'
+				elbow_pitch_joint_init_rpy:='0.0 0.0 0.0'
+				elbow_yaw_joint_init_rpy:='0.0 0.0 0.0'
+				wrist_pitch_joint_init_rpy:='0.0 0.0 0.0'
+				wrist_roll_joint_init_rpy:='0.0 0.0 0.0'
+				" />
 	<!-- Setting gui parameter to true for display joint slider -->
 	<param name="use_gui" value="true"/>
 	<!-- Starting Joint state publisher node which will publish the joint values -->
