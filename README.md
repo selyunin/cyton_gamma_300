@@ -54,17 +54,22 @@ the installation instructions). Finally, these packages are
 additionally required to be in your ROS workspace (or on your
 `$ROS_PACKAGE_PATH`):
 
-* [`dynamixel_motor`](http://wiki.ros.org/dynamixel_motor)
+* [`dynamixel_motor`](http://wiki.ros.org/dynamixel_motor) -- `cyton_gamma_300_controllers` 
+  depends on the package to actuate the robot motors;
 
-* [`ros_control`](http://wiki.ros.org/ros_control)
+* [`ros_controllers`](http://wiki.ros.org/ros_controllers) -- are instantiated in 
+  `cyton_gamma_300_controllers`;
 
-* [`ros_controllers`](http://wiki.ros.org/ros_controllers)
+* [`ros_control`](http://wiki.ros.org/ros_control) -- `ros_controllers` depend on this package;
 
-* [`control_toolbox`](http://wiki.ros.org/control_toolbox)
+* [`control_toolbox`](http://wiki.ros.org/control_toolbox) -- `ros_controllers` 
+  depend on this package;
 
-* [`realtime_tools`](http://wiki.ros.org/realtime_tools)
+* [`realtime_tools`](http://wiki.ros.org/realtime_tools) -- `ros_controllers` dependency;
 
-* [`warehouse_ros`](http://wiki.ros.org/warehouse_ros)
+* [`warehouse_ros`](http://wiki.ros.org/warehouse_ros) -- required if
+  one wants to use the warehouse database server while using motion
+  planning (included by default when running `moveit setup_assistant`)
 
 Fortunately, one can use available ROS tools to install missing
 dependencies:
@@ -161,19 +166,19 @@ Finally, we bring up MoveIt:
 
 [Andras Fekete](https://github.com/bandi13) pioneered in his 
 [work](http://www.bandilabs.com/2014/11/13/get-cyton-gamma-300-working-ros/) 
-moving Cyton Gamma 300 arm to open source rails
-from manufacturer's proprietary software. I must confess that I was not able to
+migrating Cyton Gamma 300 arm to open source software
+from manufacturer's proprietary one. I must confess that I was not able to
 run his code due to some errors, still he was a source of inspirations 
 for the follow up projects.
-[Tyler Slabinski](https://github.com/Slabity) created a beautiful
+[Tyler Slabinski](https://github.com/Slabity) created beautiful
 meshes of the Cyton Gamma 300 arm and wrote the URDF file that others
 extensively use.
 [AssistiveRoboticsUNH](https://github.com/AssistiveRoboticsUNH) and
-[Andreas Lydakis](https://bitbucket.org/AndLydakis/) provided respectively
+[Andreas Lydakis](https://bitbucket.org/AndLydakis/) provided 
 [here](https://github.com/AssistiveRoboticsUNH/cyton_gamma_300_ROS)
 and 
-[here](https://bitbucket.org/AndLydakis/cyton_gamma_300_ros) 
-repositories for running the actual robot using MoveIt, 
+[here](https://bitbucket.org/AndLydakis/cyton_gamma_300_ros) respectively
+the repositories for running the actual robot using MoveIt, 
 but did not include Gazebo support for simulations of Cyton Gamma 300.
 
 ### <a name="rationale"   ></a>7. Rationale
