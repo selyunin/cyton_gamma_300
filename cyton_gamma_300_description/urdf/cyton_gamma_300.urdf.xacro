@@ -11,6 +11,42 @@
 	<!-- #######! PROPERTIES !###################### -->
 	<!-- ########################################### -->
 	<xacro:property name="transmission" value="$(arg transmission)" />
+	<xacro:property name="shoulder_roll_joint_init_xyz" 		value="0 0 0.05315" />
+	<xacro:property name="shoulder_roll_joint_init_rpy" 		value="0 0 1.2" />
+	<xacro:property name="shoulder_pitch_joint_init_xyz" 		value="0 0 0.063" />
+	<xacro:property name="shoulder_pitch_joint_init_rpy" 		value="1.2 0 0" />
+	<xacro:property name="elbow_roll_joint_init_xyz" 			value="0 0 0.089" />
+	<xacro:property name="elbow_roll_joint_init_rpy" 			value="0 0 1.2" />
+	<xacro:property name="elbow_pitch_joint_init_xyz" 			value="0 0 0.052" />
+	<xacro:property name="elbow_pitch_joint_init_rpy" 			value="1.2 0 0" />
+	<xacro:property name="elbow_yaw_joint_init_xyz" 			value="0 0 0.072" />
+	<xacro:property name="elbow_yaw_joint_init_rpy" 			value="0 -1.2 0" />
+	<xacro:property name="wrist_pitch_joint_init_xyz" 			value="0 0 0.0718" />
+	<xacro:property name="wrist_pitch_joint_init_rpy" 			value="1.2 0 0" />
+	<xacro:property name="wrist_roll_joint_init_xyz" 			value="0 0 0.051425" />
+	<xacro:property name="wrist_roll_joint_init_rpy" 			value="0 0 1.2" />
+	<xacro:property name="gripper_finger1_joint_init_xyz" 		value="-0.01331 0.00485 0.077225" />
+	<xacro:property name="gripper_finger1_joint_init_rpy" 		value="0 0 0" />
+	<xacro:property name="gripper_finger2_joint_init_xyz" 		value="0.0098 0.00485 0.077225" />
+	<xacro:property name="gripper_finger2_joint_init_rpy" 		value="0 0 0" />
+	<xacro:property name="virtual_endeffector_joint_init_xyz" 	value="-0.002316 0.0079 0.079425" />
+	<xacro:property name="virtual_endeffector_joint_init_rpy" 	value="0 0 0" />
+
+	<!-- ########################################### -->
+	<!-- #! SPECIFY INITIAL ARM POSITION   !######## -->
+	<!-- #! IN GAZEBO FROM THE LAUNCH FILE !######## -->
+	<!-- ########################################### -->
+	<xacro:if value="$(arg simulation)">
+	  <xacro:property name="shoulder_roll_joint_init_rpy" 		value="$(arg shoulder_roll_joint_init_rpy)" />
+	  <xacro:property name="shoulder_pitch_joint_init_rpy" 		value="$(arg shoulder_pitch_joint_init_rpy)" />
+	  <xacro:property name="elbow_roll_joint_init_rpy" 			value="$(arg elbow_roll_joint_init_rpy)" />
+	  <xacro:property name="elbow_pitch_joint_init_rpy" 		value="$(arg elbow_pitch_joint_init_rpy)" />
+	  <xacro:property name="elbow_yaw_joint_init_rpy" 			value="$(arg elbow_yaw_joint_init_rpy)" />
+	  <xacro:property name="wrist_pitch_joint_init_rpy" 		value="$(arg wrist_pitch_joint_init_rpy)" />
+	  <xacro:property name="wrist_roll_joint_init_rpy" 			value="$(arg wrist_roll_joint_init_rpy)" />
+	</xacro:if>
+	
+
 
 	<!-- Used for fixing robot to Gazebo 'base_link' -->
 	<link name="world">
@@ -61,7 +97,7 @@
         <joint name="shoulder_roll_joint" type="revolute">
             <parent link="base_link" />
             <child link="shoulder_roll" />
-            <origin xyz="0 0 0.05315" rpy="0 0 1.2" />
+			<origin xyz="${shoulder_roll_joint_init_xyz}" rpy="${shoulder_roll_joint_init_rpy}" />
             <limit lower="-2.618" upper="2.618" effort="100.0" velocity="1.0" />
             <axis xyz="0 0 1" />
         </joint>
@@ -101,7 +137,7 @@
         <joint name="shoulder_pitch_joint" type="revolute">
             <parent link="shoulder_roll" />
             <child link="shoulder_pitch" />
-            <origin xyz="0 0 0.063" rpy="1.2 0 0" />
+			<origin xyz="${shoulder_pitch_joint_init_xyz}" rpy="${shoulder_pitch_joint_init_rpy}" />
             <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>
@@ -144,7 +180,7 @@
         <joint name="elbow_roll_joint" type="revolute">
             <parent link="shoulder_pitch" />
             <child link="elbow_roll" />
-            <origin xyz="0 0 0.089" rpy="0 0 1.2" />
+			<origin xyz="${elbow_roll_joint_init_xyz}" rpy="${elbow_roll_joint_init_rpy}" />
             <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
             <axis xyz="0 0 1" />
         </joint>
@@ -186,7 +222,7 @@
         <joint name="elbow_pitch_joint" type="revolute">
             <parent link="elbow_roll" />
             <child link="elbow_pitch" />
-            <origin xyz="0 0 0.052" rpy="1.2 0 0" />
+			<origin xyz="${elbow_pitch_joint_init_xyz}" rpy="${elbow_pitch_joint_init_rpy}" />
             <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>
@@ -230,7 +266,7 @@
         <joint name="elbow_yaw_joint" type="revolute">
             <parent link="elbow_pitch" />
             <child link="elbow_yaw" />
-            <origin xyz="0 0 0.072" rpy="0 -1.2 0" />
+			<origin xyz="${elbow_yaw_joint_init_xyz}" rpy="${elbow_yaw_joint_init_rpy}" />
             <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
             <axis xyz="0 -1 0" />
         </joint>
@@ -272,7 +308,7 @@
         <joint name="wrist_pitch_joint" type="revolute">
             <parent link="elbow_yaw" />
             <child link="wrist_pitch" />
-            <origin xyz="0 0 0.0718" rpy="1.2 0 0" />
+			<origin xyz="${wrist_pitch_joint_init_xyz}" rpy="${wrist_pitch_joint_init_rpy}" />
             <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>
@@ -314,7 +350,7 @@
         <joint name="wrist_roll_joint" type="revolute">
             <parent link="wrist_pitch" />
             <child link="wrist_roll" />
-            <origin xyz="0 0 0.051425" rpy="0 0 1.2" />
+			<origin xyz="${wrist_roll_joint_init_xyz}" rpy="${wrist_roll_joint_init_rpy}" />
             <limit lower="-2.61799" upper="2.61799" effort="100.0" velocity="1.0" />
             <axis xyz="0 0 1" />
         </joint>
@@ -356,7 +392,7 @@
         <joint name="gripper_finger1_joint" type="prismatic">
             <parent link="wrist_roll" />
             <child link="gripper_finger1" />
-            <origin xyz="-0.01331 0.00485 0.077225" rpy="0 0 0" />
+			<origin xyz="${gripper_finger1_joint_init_xyz}" rpy="${gripper_finger1_joint_init_rpy}" />
             <limit lower="-0.008" upper="0.008" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>
@@ -397,7 +433,7 @@
         <joint name="gripper_finger2_joint" type="prismatic">
             <parent link="wrist_roll" />
             <child link="gripper_finger2" />
-            <origin xyz="0.0098 0.00485 0.077225" rpy="0 0 0" />
+			<origin xyz="${gripper_finger2_joint_init_xyz}" rpy="${gripper_finger2_joint_init_rpy}" />
             <limit lower="-0.008" upper="0.008" effort="100.0" velocity="1.0" />
 			<mimic joint="gripper_finger1_joint" multiplier="-1"/> 
             <axis xyz="1 0 0" />
@@ -439,7 +475,7 @@
             <joint name="virtual_endeffector_joint" type="fixed">
                 <parent link="wrist_roll" />
                 <child link="virtual_endeffector" />
-                <origin xyz="-0.002316 0.0079 0.079425" rpy="0 0 0" />
+				<origin xyz="${virtual_endeffector_joint_init_xyz}" rpy="${virtual_endeffector_joint_init_rpy}" />
             </joint>
 
             <link name="virtual_endeffector">
