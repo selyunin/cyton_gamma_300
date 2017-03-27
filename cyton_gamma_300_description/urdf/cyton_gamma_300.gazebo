@@ -25,6 +25,15 @@
     </plugin>
   </gazebo>
 
+  <gazebo>
+    <plugin name="gazebo_mimic_joint_plugin" filename="libgazebo_mimic_joint_plugin.so">
+      <robotNamespace>/cyton_gamma_300</robotNamespace>
+      <joint>gripper_finger1_joint</joint>
+      <mimicJoint>gripper_finger2_joint</mimicJoint>
+      <multiplier>-1.0</multiplier>
+    </plugin>
+  </gazebo>
+
   <!-- Base of robot here -->
   <!-- ########################################### -->
   <!-- #######! Base Link !####################### -->
