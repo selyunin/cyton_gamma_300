@@ -4,7 +4,8 @@
 	<arg name="transmission" default="position"/>
 	<param name="robot_description" 
 	  command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
-			   transmission:=$(arg transmission)" />
+	  transmission:=$(arg transmission)
+	 simulation:=false " />
 
 	<rosparam file="$(find cyton_gamma_300_controllers)/config/robot_manipulator_dynamixel_controller.yaml" command="load"/>
 
