@@ -8,10 +8,10 @@
   <transmission name="trans_shoulder_roll">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="shoulder_roll_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="shoulder_roll_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -22,10 +22,10 @@
   <transmission name="trans_shoulder_pitch">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="shoulder_pitch_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="shoulder_pitch_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -36,10 +36,10 @@
   <transmission name="trans_elbow_roll">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="elbow_roll_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="elbow_roll_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -50,10 +50,10 @@
   <transmission name="trans_elbow_pitch">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="elbow_pitch_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="elbow_pitch_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -64,10 +64,10 @@
   <transmission name="trans_elbow_yaw">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="elbow_yaw_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="elbow_yaw_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -78,10 +78,10 @@
   <transmission name="trans_wrist_pitch">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="wrist_pitch_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="wrist_pitch_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -92,10 +92,10 @@
   <transmission name="trans_wrist_roll">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="wrist_roll_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="wrist_roll_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -106,10 +106,10 @@
   <transmission name="trans_gripper_finger1">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="gripper_finger1_joint">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <actuator name="gripper_finger1_motor">
-      <hardwareInterface>PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
@@ -120,10 +120,10 @@
   <!-- <transmission name="trans_gripper_finger2"> -->
   <!-- <type>transmission_interface/SimpleTransmission</type> -->
   <!-- <joint name="gripper_finger2_joint"> -->
-	<!-- <hardwareInterface>PositionJointInterface</hardwareInterface> -->
+	<!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> -->
 	<!-- </joint> -->
   <!-- <actuator name="gripper_finger2_motor"> -->
-	<!-- <hardwareInterface>PositionJointInterface</hardwareInterface> -->
+	<!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> -->
 	<!-- <mechanicalReduction>1</mechanicalReduction> -->
 	<!-- </actuator> -->
   <!-- </transmission> -->
