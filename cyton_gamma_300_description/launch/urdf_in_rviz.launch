@@ -18,7 +18,7 @@
 	<!-- Starting Joint state publisher node which will publish the joint values -->
 	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
 	<!-- Starting robot state publish which will publish tf -->
-	<node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+	<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
 	<!-- Launch visualization in rviz -->
 	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find cyton_gamma_300_description)/rviz_config.rviz" />
 </launch>
