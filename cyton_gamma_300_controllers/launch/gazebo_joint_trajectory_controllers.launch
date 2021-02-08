@@ -1,29 +1,30 @@
 <launch>
 
-  <!-- Launch Gazebo  -->
-  <include file="$(find cyton_gamma_300_gazebo)/launch/gazebo_world.launch" >   
-	<arg name="transmission" value="position" />
-  </include>
+    <!-- Launch Gazebo  -->
+    <include file="$(find cyton_gamma_300_gazebo)/launch/gazebo_world.launch" >
+        <arg name="transmission" value="position" />
+    </include>
 
-  <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find cyton_gamma_300_controllers)/config/joint_state_controller.yaml" command="load"/>
-  <rosparam file="$(find cyton_gamma_300_controllers)/config/gazebo_joint_trajectory_controllers.yaml" command="load"/>
+    <!-- Load joint controller configurations from YAML file to parameter server -->
+    <rosparam file="$(find cyton_gamma_300_controllers)/config/joint_state_controller.yaml" command="load"/>
+    <rosparam file="$(find cyton_gamma_300_controllers)/config/gazebo_joint_trajectory_controllers.yaml" command="load"/>
+    <rosparam file="$(find cyton_gamma_300_controllers)/config/gazebo_ros_control_params.yaml" command="load"/>
 
-  <!-- load the controllers -->
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-	output="screen" ns="/cyton_gamma_300" args="joint_state_controller 
-												arm_controller 
-												gripper_controller
-												"/>
+    <!-- load the controllers -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" ns="/cyton_gamma_300" args="joint_state_controller
+                                                      arm_controller
+                                                      gripper_controller
+                                                      "/>
 
-  <!-- convert joint states to TF transforms for rviz, etc -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-    respawn="false" output="screen">
-    <remap from="/joint_states" to="/cyton_gamma_300/joint_states" />
-  </node>
+    <!-- convert joint states to TF transforms for rviz, etc -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="false" output="screen">
+        <remap from="/joint_states" to="/cyton_gamma_300/joint_states" />
+    </node>
 
-  <!-- load gui tool to actuate joints -->
-  <node name="gui_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller" 
-		type="rqt_joint_trajectory_controller" respawn="false" />
+    <!-- load gui tool to actuate joints -->
+    <node name="gui_joint_trajectory_controller" pkg="rqt_joint_trajectory_controller"
+          type="rqt_joint_trajectory_controller" respawn="false" />
 
 </launch>
