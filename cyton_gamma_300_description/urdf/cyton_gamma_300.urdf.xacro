@@ -98,7 +98,7 @@
             <parent link="base_link" />
             <child link="shoulder_roll" />
 			<origin xyz="${shoulder_roll_joint_init_xyz}" rpy="${shoulder_roll_joint_init_rpy}" />
-            <limit lower="-2.618" upper="2.618" effort="100.0" velocity="1.0" />
+            <limit lower="-3.9" upper="1.5" effort="100.0" velocity="1.0" />
             <axis xyz="0 0 1" />
         </joint>
 
@@ -138,7 +138,7 @@
             <parent link="shoulder_roll" />
             <child link="shoulder_pitch" />
 			<origin xyz="${shoulder_pitch_joint_init_xyz}" rpy="${shoulder_pitch_joint_init_rpy}" />
-            <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+            <limit lower="-2.6" upper="0.2" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>
 
@@ -181,7 +181,7 @@
             <parent link="shoulder_pitch" />
             <child link="elbow_roll" />
 			<origin xyz="${elbow_roll_joint_init_xyz}" rpy="${elbow_roll_joint_init_rpy}" />
-            <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+            <limit lower="-3.8" upper="1.4" effort="100.0" velocity="1.0" />
             <axis xyz="0 0 1" />
         </joint>
 
@@ -223,7 +223,7 @@
             <parent link="elbow_roll" />
             <child link="elbow_pitch" />
 			<origin xyz="${elbow_pitch_joint_init_xyz}" rpy="${elbow_pitch_joint_init_rpy}" />
-            <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+            <limit lower="-3.2" upper="0.8" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>
 
@@ -267,7 +267,7 @@
             <parent link="elbow_pitch" />
             <child link="elbow_yaw" />
 			<origin xyz="${elbow_yaw_joint_init_xyz}" rpy="${elbow_yaw_joint_init_rpy}" />
-            <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+            <limit lower="-3.2" upper="0.8" effort="100.0" velocity="1.0" />
             <axis xyz="0 -1 0" />
         </joint>
 
@@ -309,7 +309,7 @@
             <parent link="elbow_yaw" />
             <child link="wrist_pitch" />
 			<origin xyz="${wrist_pitch_joint_init_xyz}" rpy="${wrist_pitch_joint_init_rpy}" />
-            <limit lower="-1.8326" upper="1.8326" effort="100.0" velocity="1.0" />
+            <limit lower="-3.1" upper="0.8" effort="100.0" velocity="1.0" />
             <axis xyz="1 0 0" />
         </joint>
 
@@ -351,7 +351,7 @@
             <parent link="wrist_pitch" />
             <child link="wrist_roll" />
 			<origin xyz="${wrist_roll_joint_init_xyz}" rpy="${wrist_roll_joint_init_rpy}" />
-            <limit lower="-2.61799" upper="2.61799" effort="100.0" velocity="1.0" />
+            <limit lower="-3.8" upper="1.4" effort="100.0" velocity="1.0" />
             <axis xyz="0 0 1" />
         </joint>
 

@@ -2,7 +2,7 @@
 	<arg name="model" />
 	<!-- Parsing xacro and setting robot_description parameter -->
 	<param name="robot_description" 
-	  command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
+	  command="$(find xacro)/xacro '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
 				transmission:=none
 				simulation:=true
 				shoulder_roll_joint_init_rpy:='0.0 0.0 0.0'
