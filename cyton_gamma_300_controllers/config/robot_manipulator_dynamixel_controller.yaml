@@ -1,4 +1,4 @@
-dynamixels: ['shoulder_roll_joint', 'shoulder_pitch_joint', 'elbow_roll_joint', 'elbow_pitch_joint', 'elbow_yaw_joint', 'wrist_pitch_joint', 'wrist_roll_joint']
+dynamixels: ['shoulder_roll_joint', 'shoulder_pitch_joint', 'elbow_roll_joint', 'elbow_pitch_joint', 'elbow_yaw_joint', 'wrist_pitch_joint', 'wrist_roll_joint', 'gripper_finger1_joint']
 
 cyton_gamma_300:
 
@@ -22,8 +22,8 @@ cyton_gamma_300:
     motor:
       id: 0
       init: 2831
-      min: 350
-      max: 3790
+      min: 302
+      max: 3770
 
   shoulder_pitch_position_controller:
     controller:
@@ -35,8 +35,8 @@ cyton_gamma_300:
     motor:
       id: 1
       init: 2831
-      min: 820
-      max: 3340
+      min: 760
+      max: 3335
 
   elbow_roll_position_controller:
     controller:
@@ -48,8 +48,8 @@ cyton_gamma_300:
     motor:
       id: 2
       init: 2831
-      min: 350
-      max: 3770
+      min: 324
+      max: 3735
 
   elbow_pitch_position_controller:
     controller:
@@ -61,8 +61,8 @@ cyton_gamma_300:
     motor:
       id: 3
       init: 2831
-      min: 770
-      max: 3320
+      min: 750
+      max: 3347
 
   elbow_yaw_position_controller:
     controller:
@@ -74,8 +74,8 @@ cyton_gamma_300:
     motor:
       id: 4
       init: 2831
-      min: 750
-      max: 3320
+      min: 740
+      max: 3331
 
   wrist_pitch_position_controller:
     controller:
@@ -87,8 +87,8 @@ cyton_gamma_300:
     motor:
       id: 5
       init: 2831
-      min: 760
-      max: 3250
+      min: 756
+      max: 3347
 
   wrist_roll_position_controller:
     controller:
@@ -100,20 +100,20 @@ cyton_gamma_300:
     motor:
       id: 6
       init: 2831
-      min: 350
-      max: 3760
+      min: 337
+      max: 3753
 
-      # gripper_position_controller:
-      #controller:
-      #package: dynamixel_controllers
-      #module: joint_position_controller
-      #type: JointPositionController
-      #joint_name: gripper_finger1_joint
-      #joint_speed: 5.0
-      #motor:
-      #id: 7
-      #init: 2831
-      #min: 512
-      #max: 3450
+  gripper_position_controller:
+    controller:
+      package: dynamixel_controllers
+      module: joint_position_controller
+      type: JointPositionController
+    joint_name: gripper_finger1_joint
+    joint_speed: 5.0
+    motor:
+      id: 9
+      init: 1024
+      min: 512
+      max: 3450
 
 
