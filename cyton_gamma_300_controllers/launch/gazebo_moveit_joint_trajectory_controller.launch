@@ -1,8 +1,9 @@
 <launch>
-	<rosparam file="$(find cyton_gamma_300_controllers)/config/gazebo_joint_trajectory_controllers.yaml" command="load"/>
 
-  <node name="cyton_gamma_300_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-	output="screen" ns="/cyton_gamma_300" args="arm_controller 						      
-												gripper_controller"/>
+    <rosparam file="$(find cyton_gamma_300_controllers)/config/gazebo_joint_trajectory_controllers.yaml" command="load"/>
+    <rosparam file="$(find cyton_gamma_300_controllers)/config/gazebo_ros_control_params.yaml" command="load"/>
+
+    <node name="cyton_gamma_300_controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+          output="screen" ns="/cyton_gamma_300" args="arm_controller gripper_controller"/>
 
 </launch>
