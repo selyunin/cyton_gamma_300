@@ -9,8 +9,8 @@
   <arg name="transmission" default="none"/>
 
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
-  <include file="$(find gazebo_ros)/launch/empty_world.launch"> 
-	<arg name="world_name" value="$(find cyton_gamma_300_gazebo)/worlds/cyton.world"/>
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find cyton_gamma_300_gazebo)/worlds/cyton.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
@@ -19,21 +19,21 @@
   </include>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" 
-	command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
-			  transmission:=$(arg transmission)
-			  simulation:=true
-			  shoulder_roll_joint_init_rpy:='0.0 0.0 0.0'
-			  shoulder_pitch_joint_init_rpy:='0.0 0.0 0.0'
-			  elbow_roll_joint_init_rpy:='0.0 0.0 0.0'
-			  elbow_pitch_joint_init_rpy:='0.0 0.0 0.0'
-			  elbow_yaw_joint_init_rpy:='0.0 0.0 0.0'
-			  wrist_pitch_joint_init_rpy:='0.0 0.0 0.0'
-			  wrist_roll_joint_init_rpy:='0.0 0.0 0.0'
-			  " />
+  <param name="robot_description"
+         command="$(find xacro)/xacro '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
+                  transmission:=$(arg transmission)
+                  simulation:=true
+                  shoulder_roll_joint_init_rpy:='0.0 0.0 0.0'
+                  shoulder_pitch_joint_init_rpy:='0.0 0.0 0.0'
+                  elbow_roll_joint_init_rpy:='0.0 0.0 0.0'
+                  elbow_pitch_joint_init_rpy:='0.0 0.0 0.0'
+                  elbow_yaw_joint_init_rpy:='0.0 0.0 0.0'
+                  wrist_pitch_joint_init_rpy:='0.0 0.0 0.0'
+                  wrist_roll_joint_init_rpy:='0.0 0.0 0.0'
+                  " />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-	args="-urdf -model cyton_gamma_300 -param robot_description -robot_namespace cyton_gamma_300"/>
+        args="-urdf -model cyton_gamma_300 -param robot_description -robot_namespace cyton_gamma_300"/>
 
 </launch>
