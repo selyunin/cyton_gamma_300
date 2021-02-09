@@ -10,8 +10,8 @@
   <arg name="simulation" default="false"/>
 
   <!-- Load universal robot description format (URDF) -->
-  <param name="robot_description" 
-	command="$(find xacro)/xacro --inorder '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
+  <param name="robot_description"
+	command="$(find xacro)/xacro '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
 			  transmission:=$(arg transmission)
 			  simulation:=$(arg simulation)
 			  shoulder_roll_joint_init_rpy:='0.0 0.0 0.0'
@@ -24,8 +24,8 @@
 			  " />
 
   <!-- The semantic description that corresponds to the URDF -->
-  <param name="$(arg robot_description)_semantic" textfile="$(find cyton_gamma_300_moveit)/config/cyton_gamma_300.srdf" /> 
-  
+  <param name="$(arg robot_description)_semantic" textfile="$(find cyton_gamma_300_moveit)/config/cyton_gamma_300.srdf" />
+
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">
     <rosparam command="load" file="$(find cyton_gamma_300_moveit)/config/joint_limits.yaml"/>
@@ -35,5 +35,5 @@
   <group ns="$(arg robot_description)_kinematics">
     <rosparam command="load" file="$(find cyton_gamma_300_moveit)/config/kinematics.yaml"/>
   </group>
-  
+
 </launch>
