@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<robot name="cyton_gamma_300" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+
+  <!-- ########################################### -->
+  <!-- #! Shoulder Roll: Transmission Interface !# -->
+  <!-- ########################################### -->
+  <transmission name="trans_shoulder_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_roll_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder_roll_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Shoulder Pitch: Transmission Interface ! -->
+  <!-- ########################################### -->
+  <transmission name="trans_shoulder_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="shoulder_pitch_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="shoulder_pitch_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Elbow Roll: Transmission Interface !#### -->
+  <!-- ########################################### -->
+  <transmission name="trans_elbow_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_roll_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_roll_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Elbow Pitch: Transmission Interface !### -->
+  <!-- ########################################### -->
+  <transmission name="trans_elbow_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_pitch_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_pitch_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Elbow Yaw: Transmission Interface !##### -->
+  <!-- ########################################### -->
+  <transmission name="trans_elbow_yaw">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="elbow_yaw_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="elbow_yaw_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Wrist Pitch: Transmission Interface !### -->
+  <!-- ########################################### -->
+  <transmission name="trans_wrist_pitch">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_pitch_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_pitch_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Wrist Roll: Transmission Interface !#### -->
+  <!-- ########################################### -->
+  <transmission name="trans_wrist_roll">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="wrist_roll_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="wrist_roll_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Gripper Finger1: Transmission Interface  -->
+  <!-- ########################################### -->
+  <transmission name="trans_gripper_finger1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="gripper_finger1_joint">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="gripper_finger1_motor">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <!-- ########################################### -->
+  <!-- #! Gripper Finger2: Transmission Interface  -->
+  <!-- ########################################### -->
+  <!-- <transmission name="trans_gripper_finger2"> -->
+  <!-- <type>transmission_interface/SimpleTransmission</type> -->
+  <!-- <joint name="gripper_finger2_joint"> -->
+	<!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> -->
+	<!-- </joint> -->
+  <!-- <actuator name="gripper_finger2_motor"> -->
+	<!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> -->
+	<!-- <mechanicalReduction>1</mechanicalReduction> -->
+	<!-- </actuator> -->
+  <!-- </transmission> -->
+
+</robot>

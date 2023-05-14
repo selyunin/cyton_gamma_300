@@ -1,0 +1,17 @@
+ <launch>
+  <node name="gripper_manager" pkg="dynamixel_controllers"
+	type="controller_manager.py" 
+	ns="/cyton_gamma_300"	
+	required="true" output="screen">
+    <rosparam>
+      namespace: gripper_manager
+      serial_ports:
+        port_0:
+          port_name: "/dev/ttyUSB0"
+          baud_rate: 1000000
+          min_motor_id: 9
+          max_motor_id: 9
+          update_rate: 20
+    </rosparam>
+  </node>
+</launch>

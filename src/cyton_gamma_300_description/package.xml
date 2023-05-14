@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+  <name>cyton_gamma_300_description</name>
+  <version>0.0.0</version>
+  <description>The cyton_gamma_300_description package</description>
+  <maintainer email="tslabinski@slabity.net">Tyler Slabinski</maintainer>
+  <maintainer email="selyunin.k.v@gmail.com">Konstantin Selyunin</maintainer>
+  <license>BSD</license>
+
+  <!-- Url tags are optional, but mutiple are allowed, one per tag -->
+  <!-- Optional attribute type can be: website, bugtracker, or repository -->
+  <!-- Example: -->
+  <!-- <url type="website">http://wiki.ros.org/cyton_gamma_300_description</url> -->
+
+  <author email="tslabinski@slabity.net">Tyler Slabinski</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <buildtool_depend>xacro</buildtool_depend>
+</package>

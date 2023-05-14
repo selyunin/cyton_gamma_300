@@ -3,9 +3,15 @@ Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt)
 
 1. [Description](#description)
 2. [Packages](#packages)
-3. [Dependencies](#dependencies)
-4. [Quick start](#quickstart)
+3. [Installation](#installation)
+   3.1. [Installation using Docker](#installation-docker)
+   3.2. [Installation on the host](#installation-host)
+4. [Quick start](#quick-start)
+   4.1. [Quick start with Docker](#quick-start-docker)
+   4.2. [Quick start on the host](#quick-start-host)
 5. [Tutorial](#tutorial)
+   5.1. [Tutorial using docker](#tutorial-docker)
+   5.2. [Tutorial on the host](#tutorial-host)
 6. [Related Sources](#related)
 7. [Rationale](#rationale)
 8. [Maintainer](#maintainer)
@@ -13,85 +19,181 @@ Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt)
 
 ### <a name="description"></a>1. Description
 
-Yet another repository that holds a collection of [ROS](http://www.ros.org/) 
-packages to simulate and actuate
-the [Cyton Gamma 300](http://robots.mobilerobots.com/wiki/Cyton_Gamma_300_Arm)
-7-DOF robotic arm. 
-The simulation is done in [Gazebo](http://gazebosim.org/) and 
-the [MoveIt!](http://moveit.ros.org/) is used as a motion planning framework.
-The code has been tested with the [kinetic](http://wiki.ros.org/kinetic) 
-distribution of ROS (as of mid March 2017).
+The project includes a collection of [ROS](https://www.ros.org/) 
+packages to simulate and actuate the **Cyton Gamma 300** 7-DOF robotic arm from Robai 
+(the company Robai is no longer active).
+The simulation is done in [Gazebo](https://gazebosim.org/) and 
+the [MoveIt!](https://moveit.ros.org/) is used as a motion planning framework.
+The code has been tested with the [melodic](https://wiki.ros.org/melodic) 
+distribution of ROS (as of May 2023).
 
 
 ### <a name="packages"></a>2. Packages
 
-* `cyton_gamma_300_controllers`: controllers for actuating gazebo model or
-   the real robot using MoveIt framework;
+* [`cyton_gamma_300_controllers`](./src/cyton_gamma_300_controllers):
+  controllers for actuating gazebo model or the real robot using MoveIt framework;
 
-* `cyton_gamma_300_description`: [xacro](http://wiki.ros.org/xacro) description 
-   of the [URDF](http://wiki.ros.org/urdf) robot model;
+* [`cyton_gamma_300_description`](./src/cyton_gamma_300_description):
+  [xacro](http://wiki.ros.org/xacro) description of the [URDF](http://wiki.ros.org/urdf) robot model;
 
-* `cyton_gamma_300_gazebo`: gazebo simulation of the robot;
+* [`cyton_gamma_300_gazebo`](./src/cyton_gamma_300_gazebo):
+  gazebo simulation of the robot;
 
-* `cyton_gamma_300_moveit`: configuration files of the 
-   setup assistant to enable MoveIt functionality.
+* [`cyton_gamma_300_moveit`](./src/cyton_gamma_300_moveit):
+  configuration files of the setup assistant to enable MoveIt functionality.
 
 The aforementioned `cyton_gamma_300_*` packages enable 
 motion planning for the Cyton Gamma 300 arm. 
 These packages are **not** self-contained and the dependencies should
 be met to successfully run the software.
 
-### <a name="dependencies"></a>3. Dependencies
+### <a name="installation"></a>3. Installation
 
-First, one needs a full installation of ROS, otherwise 
-some other packages might be missing 
-(refer [here](http://wiki.ros.org/kinetic/Installation/Ubuntu) for the full ROS
-installation instructions). 
-Second, one needs to install [MoveIt](http://moveit.ros.org/install/). 
-Third, for sensing one needs to install OpenCV 
-(refer [here](http://milq.github.io/install-opencv-ubuntu-debian/) for
-the installation instructions). Finally, these packages are
-additionally required to be in your ROS workspace (or on your
-`$ROS_PACKAGE_PATH`):
+To run visualization / simulation / control, one needs to install
+the dependencies, which the `cyton_gamma_300_*` packages require.
+One can either use [docker](https://www.docker.com/) or install the dependencies on the host machine.
+Docker is a recommended way of launching the code, 
+as it encapsulates the dependencies and allows multiple ROS installations.
 
-* [`dynamixel_motor`](http://wiki.ros.org/dynamixel_motor) -- `cyton_gamma_300_controllers` 
+#### <a name="installation-docker"></a>3.1. Installation using Docker
+
+The repo provides a [`Dockerfile`](./Dockerfile), from which the `docker image` with 
+required pre-installed dependencies can be built.
+
+Create the docker image with required dependencies:
+```bash
+make build
+```
+alternatively, on a system without make, run:
+```bash
+source .env && docker compose build cyton-gamma
+```
+
+
+#### <a name="installation-host"></a>3.2. Installation on the host
+
+One needs to install:
+* a full version of ROS, otherwise some other packages might be missing 
+  (refer [here](https://wiki.ros.org/melodic/Installation/Ubuntu) for the full ROS
+  installation instructions). 
+* [MoveIt](http://moveit.ros.org/install/).
+* OpenCV (refer [here](https://milq.github.io/install-opencv-ubuntu-debian/) for
+the installation instructions).
+ 
+In addition, the packages below must be found in your ROS workspace 
+(or on your `$ROS_PACKAGE_PATH`):
+
+* [`dynamixel_motor`](https://wiki.ros.org/dynamixel_motor) -- 
+  [`cyton_gamma_300_controllers`](./src/cyton_gamma_300_controllers) 
   depends on the package to actuate the robot motors;
 
-* [`ros_controllers`](http://wiki.ros.org/ros_controllers) -- are instantiated in 
-  `cyton_gamma_300_controllers`;
+* [`ros_controllers`](https://wiki.ros.org/ros_controllers) -- are instantiated in 
+  [`cyton_gamma_300_controllers`](./src/cyton_gamma_300_controllers);
 
 * [`ros_control`](http://wiki.ros.org/ros_control) -- `ros_controllers` depend on this package;
 
-* [`control_toolbox`](http://wiki.ros.org/control_toolbox) -- `ros_controllers` 
+* [`control_toolbox`](https://wiki.ros.org/ros_control) -- `ros_controllers` 
   depend on this package;
 
-* [`realtime_tools`](http://wiki.ros.org/realtime_tools) -- `ros_controllers` dependency;
+* [`realtime_tools`](https://wiki.ros.org/realtime_tools) -- `ros_controllers` dependency;
 
-* [`warehouse_ros`](http://wiki.ros.org/warehouse_ros) -- required if
+* [`warehouse_ros`](https://wiki.ros.org/warehouse_ros) -- required if
   one wants to use the warehouse database server while using motion
   planning (included by default when running `moveit setup_assistant`)
 
 Fortunately, one can use available ROS tools to install missing
-dependencies:
+dependencies (replace `${WORKSPACE}` with a path to your catkin workspace and `${ROSDISTRO}` with the name
+of the ROS distribution):
 
-`rosdep install --from-paths WORKSPACE --ignore-src --rosdistro=ROSDISTRO`
+```bash
+rosdep install --from-paths ${WORKSPACE} --ignore-src --rosdistro=${ROSDISTRO}`
+```
 
-### <a name="quickstart"  ></a>4. Quick start: Plan & Execute
+
+### <a name="quick-start" />4. Quick start: Plan & Execute
+
+#### <a name="quick-start-docker" />4.1. Quick start with docker
+
+4.1.1. In Gazebo simulation:
+
+```bash
+make gazebo-moveit
+```
+
+4.1.2. On the real robot:
+
+```bash
+make robot-moveit
+```
+
+In the section below we describe the steps to launch the MoveIt on the host without docker.
+
+#### <a name="quick-start-host" />4.2. Quick start on host
+
 
 1. In Gazebo simulation:
 
-`roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
+```bash
+roslaunch cyton_gamma_300_controllers gazebo_moveit.launch
+```
 
 2. On the real robot:
 
-`roslaunch cyton_gamma_300_controllers robot_moveit.launch`
+```bash
+roslaunch cyton_gamma_300_controllers robot_moveit.launch
+```
 
+### <a name="tutorial"></a>5. Tutorial
 
-### <a name="tutorial"    ></a>5. Tutorial
+#### <a name="tutorial-docker"></a>5.1. Tutorial using docker
+
 
 1. Visualize the URDF model in RViz:
 
-`roslaunch cyton_gamma_300_description urdf_in_rviz.launch`
+```bash
+make urdf-in-rviz
+```
+
+2. Spawn the URDF model in Gazebo:
+
+```bash
+make urdf-in-gazebo
+```
+
+The model is subject to gravity forces and falls down from its original position.
+
+3. Test different types of 
+[ros\_controllers](https://github.com/ros-controls/ros_controllers)
+in Gazebo simulation:
+
+* E.g. `JointPositionController` from `effort_controllers`:
+
+`roslaunch cyton_gamma_300_controllers gazebo_effort_controllers.launch`
+
+* Or another example of `JointPositionController` from `position_controllers`:
+
+`roslaunch cyton_gamma_300_controllers gazebo_position_controllers.launch`
+
+* `JointTrajectoryController` from `position_controllers` allows to control groups 
+of joints:
+
+`roslaunch cyton_gamma_300_controllers gazebo_joint_trajectory_controllers.launch`
+
+4. Specify a target pose in [RViz](http://wiki.ros.org/rviz), plan in 
+[MoveIt!](http://moveit.ros.org/) using [OMPL](http://ompl.kavrakilab.org/) 
+and execute a plan in [Gazebo](http://gazebosim.org/):
+
+`roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
+
+
+
+### <a name="tutorial"></a>5. Tutorial
+
+1. Visualize the URDF model in RViz:
+
+```bash
+roslaunch cyton_gamma_300_description urdf_in_rviz.launch
+```
 
 2. Spawn the URDF model in Gazebo:
 
@@ -121,6 +223,12 @@ of joints:
 and execute a plan in [Gazebo](http://gazebosim.org/):
 
 `roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
+
+
+
+
+
+
 
 5. Run MoveIt on the actual robot:
 
@@ -162,14 +270,14 @@ Finally, we bring up MoveIt:
 `roslaunch cyton_gamma_300_controllers robot_moveit_movegroup.launch`
 
 
-### <a name="related"     ></a>6. Related Sources
+### <a name="related"></a>6. Related Sources
 
-[Andras Fekete](https://github.com/bandi13) pioneered in his 
-[work](http://www.bandilabs.com/2014/11/13/get-cyton-gamma-300-working-ros/) 
+[András Fekete](https://github.com/bandi13) pioneered in his 
+[work](https://bandilabs.home.blog/2014/11/13/get-cyton-gamma-300-working-ros/) 
 migrating Cyton Gamma 300 arm to open source software
 from manufacturer's proprietary one. I must confess that I was not able to
 run his code due to some errors, still he was a source of inspirations 
-for the follow up projects.
+for the follow-up projects.
 [Tyler Slabinski](https://github.com/Slabity) created beautiful
 meshes of the Cyton Gamma 300 arm and wrote the URDF file that others
 extensively use.
@@ -181,15 +289,16 @@ and
 the repositories for running the actual robot using MoveIt, 
 but did not include Gazebo support for simulations of Cyton Gamma 300.
 
-### <a name="rationale"   ></a>7. Rationale
+### <a name="rationale"></a>7. Rationale
 
 As already quite a lot of related sources exist on the
 [github](https://github.com/search?utf8=%E2%9C%93&q=cyton+gamma+300), 
 the goal is 
 (i) provide a functional step-by-step tutorial, 
-(ii) to document the working setup for the current version of ROS.
+(ii) to document the working setup for the current version of ROS,
+(iii) package dependencies in docker.
 
-### <a name="maintainer"  ></a>8. Maintainer
+### <a name="maintainer"></a>8. Maintainer
 
-[Konstantin Selyunin](http://selyunin.com/), for
+[Dr. Konstantin Selyunin](https://selyunin.github.io/), for
 suggestions/questions/comments please contact: selyunin [dot] k [dot] v [at] gmail [dot] com

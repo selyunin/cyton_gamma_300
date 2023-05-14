@@ -1,0 +1,86 @@
+version: "3.6"
+
+services:
+
+  cyton-gamma: &cyton-gamma
+    image: ${DOCKER_IMAGE}:${VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: cyton-gamma-300
+    volumes:
+      - .:/src
+      - /dev:/dev
+      - /var/run/dbus/:/var/run/dbus
+      - /run/udev:/run/udev:ro
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    env_file:
+      - .env
+    working_dir: /catkin_ws
+    ipc: host
+    network_mode: host
+    privileged: true
+    environment:
+      - RUNS_INSIDE_DOCKER=1
+      - DISPLAY=$DISPLAY
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+
+  cyton-gamma-shell:
+    <<: *cyton-gamma
+    command: >
+      bash /ros_entrypoint.sh && source /catkin_ws/devel/setup.bash
+
+  cyton-gamma-urdf-in-rviz:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_description urdf_in_rviz.launch"
+
+  cyton-gamma-urdf-in-gazebo:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_gazebo gazebo_world.launch"
+
+  cyton-gamma-joint-effort-controller:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers gazebo_effort_controllers.launch"
+
+  cyton-gamma-joint-position-controller:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers gazebo_position_controllers.launch"
+
+  cyton-gamma-joint-trajectory-controller:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers gazebo_joint_trajectory_controllers.launch"
+
+  cyton-gamma-gazebo-moveit:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers gazebo_moveit.launch"
+
+  cyton-gamma-robot-manipulator-manager:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers robot_manipulator_manager.launch"
+
+  cyton-gamma-robot-manipulator-controller-spawner:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers robot_manipulator_controller_spawner.launch"
+
+  cyton-gamma-robot-moveit:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers robot_moveit.launch"

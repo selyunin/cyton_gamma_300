@@ -1,0 +1,17 @@
+<launch>
+    <!-- Load the URDF into the ROS Parameter Server -->
+    <arg name="transmission" default="position"/>
+
+    <param name="robot_description"
+           command="$(find xacro)/xacro '$(find cyton_gamma_300_description)/urdf/cyton_gamma_300.urdf.xacro'
+                    transmission:=$(arg transmission)
+                    simulation:=false" />
+
+    <include file="$(find cyton_gamma_300_controllers)/launch/robot_dynamixel_joint_state.launch" />
+
+    <!-- moveit launch file -->
+    <include file="$(find cyton_gamma_300_moveit)/launch/robot_moveit_planning_exec_minimal.launch" />
+
+    <param name="move_group/trajectory_execution/allowed_execution_duration_scaling" value="3.0"/>
+
+</launch>
