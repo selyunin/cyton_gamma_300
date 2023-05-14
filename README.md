@@ -2,19 +2,19 @@ Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt)
 ============================================
 
 1. [Description](#description)
-2. [Packages](#packages)
-3. [Installation](#installation)
-   3.1. [Installation using Docker](#installation-docker)
-   3.2. [Installation on the host](#installation-host)
-4. [Quick start](#quick-start)
-   4.1. [Quick start with Docker](#quick-start-docker)
-   4.2. [Quick start on the host](#quick-start-host)
-5. [Tutorial](#tutorial)
-   5.1. [Tutorial using docker](#tutorial-docker)
-   5.2. [Tutorial on the host](#tutorial-host)
-6. [Related Sources](#related)
-7. [Rationale](#rationale)
-8. [Maintainer](#maintainer)
+1. [Packages](#packages)
+1. [Installation](#installation)
+    1. [Installation using Docker](#installation-docker)
+    1. [Installation on the host](#installation-host)
+1. [Quick start](#quick-start)
+    1. [Quick start with Docker](#quick-start-docker)
+    1. [Quick start on the host](#quick-start-host)
+1. [Tutorial](#tutorial)
+    1. [Tutorial using docker](#tutorial-docker)
+    1. [Tutorial on the host](#tutorial-host)
+1. [Related Sources](#related)
+1. [Rationale](#rationale)
+1. [Maintainer](#maintainer)
 
 
 ### <a name="description"></a>1. Description
@@ -23,7 +23,7 @@ The project includes a collection of [ROS](https://www.ros.org/)
 packages to simulate and actuate the **Cyton Gamma 300** 7-DOF robotic arm from Robai 
 (the company Robai is no longer active).
 The simulation is done in [Gazebo](https://gazebosim.org/) and 
-the [MoveIt!](https://moveit.ros.org/) is used as a motion planning framework.
+the [MoveIt](https://moveit.ros.org/) is used as a motion planning framework.
 The code has been tested with the [melodic](https://wiki.ros.org/melodic) 
 distribution of ROS (as of May 2023).
 
