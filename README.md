@@ -310,7 +310,9 @@ address).
 The following launch file will start everything one needs to plan and
 execute the plan on the actual robot:
 
-`roslaunch cyton_gamma_300_controllers robot_moveit.launch`
+```bash
+roslaunch cyton_gamma_300_controllers robot_moveit.launch
+```
 
 * Alternatively, it is possible to launch the same functionality
   separately (e.g. for debugging purposes):
@@ -321,23 +323,31 @@ We logically separate motors 0-6 for the arm (or the *manipulator* planning grou
 and the stepper motor 7 for the gripper (the *gripper* planning group). 
 We start initialization with the manipulator planning group:
 
-`roslaunch cyton_gamma_300_controllers robot_manipulator_manager.launch` 
+```bash
+roslaunch cyton_gamma_300_controllers robot_manipulator_manager.launch
+```
 
 Second, we need to spawn controllers that would activate the
 manipulator joints (i.e. motors 0-6 on the bus):
 
-`roslaunch cyton_gamma_300_controllers robot_manipulator_controller_spawner.launch`
+```bash
+roslaunch cyton_gamma_300_controllers robot_manipulator_controller_spawner.launch
+```
 
 Third, we need to repeat steps one and two for the gripper:
 
-`roslaunch cyton_gamma_300_controllers robot_gripper_manager.launch` 
-
-`roslaunch cyton_gamma_300_controllers robot_gripper_controller_spawner.launch`
+```bash
+roslaunch cyton_gamma_300_controllers robot_gripper_manager.launch
+```
+ 
+```bash
+roslaunch cyton_gamma_300_controllers robot_gripper_controller_spawner.launch
+```
 
 Finally, we bring up MoveIt:
-
-`roslaunch cyton_gamma_300_controllers robot_moveit_movegroup.launch`
-
+```bash
+roslaunch cyton_gamma_300_controllers robot_moveit_movegroup.launch
+```
 
 ### <a name="related"/>Related Sources
 
