@@ -248,6 +248,13 @@ Finally, in an additional docker container we launch MoveIt:
 make robot-moveit-movegroup
 ```
 
+6. Run MoveIt setup assistant wizard:
+
+```bash
+make robot-moveit-setup-assistant
+```
+
+
 ### <a name="tutorial-host"/>Tutorial on the host
 
 In this tutorial the steps, mentioned for the docker are shown, with the 
