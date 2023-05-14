@@ -60,6 +60,10 @@ The repo provides a [`Dockerfile`](./Dockerfile), from which the `docker image` 
 required pre-installed dependencies can be built.
 [`Makefile`](./Makefile) includes the targets to build the docker image and run the 
 docker containers (see [tutorial](#tutorial-docker) for details).
+On the host machine, one needs to install a recent version of docker and a
+docker compose plugin, follow the 
+[official installation instructions](https://docs.docker.com/desktop/install/ubuntu/).
+As a result, `docker` and `docker compose` commands shall be available on your system.
 
 Create the docker image with required dependencies:
 ```bash
