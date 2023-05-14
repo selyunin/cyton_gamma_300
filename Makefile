@@ -82,6 +82,13 @@ robot-moveit-movegroup: ## Launch MoveIt move_group
 	xhost +
 	docker compose run --rm cyton-gamma-robot-moveit-movegroup
 
+
+.PHONY: robot-moveit-setup-assistant
+robot-moveit-setup-assistant: ## Launch MoveIt setup assistant
+	xhost +
+	docker compose run --rm cyton-gamma-moveit-setup-assistant
+
+
 .PHONY: robot-moveit
 robot-moveit: ## Launch MoveIt with physical robot and dynamixel controllers
 	xhost +
