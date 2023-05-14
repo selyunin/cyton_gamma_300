@@ -1,40 +1,38 @@
-Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt) 
-============================================
+# Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt)
 
 1. [Description](#description)
-2. [Packages](#packages)
-3. [Installation](#installation)
-   3.1. [Installation using Docker](#installation-docker)
-   3.2. [Installation on the host](#installation-host)
-4. [Quick start](#quick-start)
-   4.1. [Quick start with Docker](#quick-start-docker)
-   4.2. [Quick start on the host](#quick-start-host)
-5. [Tutorial](#tutorial)
-   5.1. [Tutorial using docker](#tutorial-docker)
-   5.2. [Tutorial on the host](#tutorial-host)
-6. [Related Sources](#related)
-7. [Rationale](#rationale)
-8. [Maintainer](#maintainer)
+1. [Packages](#packages)
+1. [Installation](#installation)
+    1. [Installation using docker](#installation-docker)
+    1. [Installation on the host](#installation-host)
+1. [Quick start](#quick-start)
+    1. [Quick start using docker](#quick-start-docker)
+    1. [Quick start on the host](#quick-start-host)
+1. [Tutorial](#tutorial)
+    1. [Tutorial using docker](#tutorial-docker)
+    1. [Tutorial on the host](#tutorial-host)
+1. [Related Sources](#related)
+1. [Rationale](#rationale)
+1. [Maintainer](#maintainer)
 
 
-### <a name="description"></a>1. Description
+## <a name="description"/>Description
 
 The project includes a collection of [ROS](https://www.ros.org/) 
 packages to simulate and actuate the **Cyton Gamma 300** 7-DOF robotic arm from Robai 
 (the company Robai is no longer active).
 The simulation is done in [Gazebo](https://gazebosim.org/) and 
-the [MoveIt!](https://moveit.ros.org/) is used as a motion planning framework.
+the [MoveIt](https://moveit.ros.org/) is used as a motion planning framework.
 The code has been tested with the [melodic](https://wiki.ros.org/melodic) 
 distribution of ROS (as of May 2023).
 
-
-### <a name="packages"></a>2. Packages
+## <a name="packages"/>Packages
 
 * [`cyton_gamma_300_controllers`](./src/cyton_gamma_300_controllers):
-  controllers for actuating gazebo model or the real robot using MoveIt framework;
+  controllers for actuating gazebo model or the real robot using MoveIt;
 
 * [`cyton_gamma_300_description`](./src/cyton_gamma_300_description):
-  [xacro](http://wiki.ros.org/xacro) description of the [URDF](http://wiki.ros.org/urdf) robot model;
+  [xacro](https://wiki.ros.org/xacro) description of the [URDF](https://wiki.ros.org/urdf) robot model;
 
 * [`cyton_gamma_300_gazebo`](./src/cyton_gamma_300_gazebo):
   gazebo simulation of the robot;
@@ -42,23 +40,30 @@ distribution of ROS (as of May 2023).
 * [`cyton_gamma_300_moveit`](./src/cyton_gamma_300_moveit):
   configuration files of the setup assistant to enable MoveIt functionality.
 
-The aforementioned `cyton_gamma_300_*` packages enable 
-motion planning for the Cyton Gamma 300 arm. 
+The aforementioned `cyton_gamma_300_*` packages enable motion 
+planning for the Cyton Gamma 300 arm. 
 These packages are **not** self-contained and the dependencies should
 be met to successfully run the software.
 
-### <a name="installation"></a>3. Installation
+## <a name="installation"/>Installation
 
-To run visualization / simulation / control, one needs to install
+To visualize / simulate / control, one needs to install
 the dependencies, which the `cyton_gamma_300_*` packages require.
-One can either use [docker](https://www.docker.com/) or install the dependencies on the host machine.
+One can either use [docker](https://www.docker.com/) 
+or install the dependencies on the host machine.
 Docker is a recommended way of launching the code, 
 as it encapsulates the dependencies and allows multiple ROS installations.
 
-#### <a name="installation-docker"></a>3.1. Installation using Docker
+### <a name="installation-docker"/>Installation using Docker
 
 The repo provides a [`Dockerfile`](./Dockerfile), from which the `docker image` with 
 required pre-installed dependencies can be built.
+[`Makefile`](./Makefile) includes the targets to build the docker image and run the 
+docker containers (see [tutorial](#tutorial-docker) for details).
+On the host machine, one needs to install a recent version of docker and a
+docker compose plugin, follow the 
+[official installation instructions](https://docs.docker.com/desktop/install/ubuntu/).
+As a result, `docker` and `docker compose` commands shall be available on your system.
 
 Create the docker image with required dependencies:
 ```bash
@@ -69,8 +74,10 @@ alternatively, on a system without make, run:
 source .env && docker compose build cyton-gamma
 ```
 
+In the remaining document we will refer to launching docker command via 
+the corresponding `make` targets.
 
-#### <a name="installation-host"></a>3.2. Installation on the host
+### <a name="installation-host"/>Installation on the host
 
 One needs to install:
 * a full version of ROS, otherwise some other packages might be missing 
@@ -85,7 +92,7 @@ In addition, the packages below must be found in your ROS workspace
 
 * [`dynamixel_motor`](https://wiki.ros.org/dynamixel_motor) -- 
   [`cyton_gamma_300_controllers`](./src/cyton_gamma_300_controllers) 
-  depends on the package to actuate the robot motors;
+  depend on the package to actuate the robot motors;
 
 * [`ros_controllers`](https://wiki.ros.org/ros_controllers) -- are instantiated in 
   [`cyton_gamma_300_controllers`](./src/cyton_gamma_300_controllers);
@@ -109,18 +116,17 @@ of the ROS distribution):
 rosdep install --from-paths ${WORKSPACE} --ignore-src --rosdistro=${ROSDISTRO}`
 ```
 
+## <a name="quick-start"/>Quick start: Plan & Execute
 
-### <a name="quick-start" />4. Quick start: Plan & Execute
+### <a name="quick-start-docker"/>Quick start using docker
 
-#### <a name="quick-start-docker" />4.1. Quick start with docker
-
-4.1.1. In Gazebo simulation:
+1. Launch RViz, MoveIt, and Gazebo simulation:
 
 ```bash
 make gazebo-moveit
 ```
 
-4.1.2. On the real robot:
+2. Lauch RViz, MoveIt for the physical robot:
 
 ```bash
 make robot-moveit
@@ -128,25 +134,24 @@ make robot-moveit
 
 In the section below we describe the steps to launch the MoveIt on the host without docker.
 
-#### <a name="quick-start-host" />4.2. Quick start on host
+### <a name="quick-start-host"/>Quick start on host
 
 
-1. In Gazebo simulation:
+1. Launch RViz, MoveIt, and Gazebo simulation:
 
 ```bash
 roslaunch cyton_gamma_300_controllers gazebo_moveit.launch
 ```
 
-2. On the real robot:
+2. Lauch RViz, MoveIt for the physical robot:
 
 ```bash
 roslaunch cyton_gamma_300_controllers robot_moveit.launch
 ```
 
-### <a name="tutorial"></a>5. Tutorial
+## <a name="tutorial"/>Tutorial
 
-#### <a name="tutorial-docker"></a>5.1. Tutorial using docker
-
+### <a name="tutorial-docker"/>Tutorial using docker
 
 1. Visualize the URDF model in RViz:
 
@@ -162,32 +167,92 @@ make urdf-in-gazebo
 
 The model is subject to gravity forces and falls down from its original position.
 
-3. Test different types of 
+3. Try out different types of 
 [ros\_controllers](https://github.com/ros-controls/ros_controllers)
 in Gazebo simulation:
 
 * E.g. `JointPositionController` from `effort_controllers`:
 
-`roslaunch cyton_gamma_300_controllers gazebo_effort_controllers.launch`
+```bash
+make joint-effort-controller
+```
 
 * Or another example of `JointPositionController` from `position_controllers`:
 
-`roslaunch cyton_gamma_300_controllers gazebo_position_controllers.launch`
+```bash
+make joint-position-controller
+```
 
 * `JointTrajectoryController` from `position_controllers` allows to control groups 
 of joints:
 
-`roslaunch cyton_gamma_300_controllers gazebo_joint_trajectory_controllers.launch`
+```bash
+make joint-trajectory-controller
+```
 
-4. Specify a target pose in [RViz](http://wiki.ros.org/rviz), plan in 
-[MoveIt!](http://moveit.ros.org/) using [OMPL](http://ompl.kavrakilab.org/) 
-and execute a plan in [Gazebo](http://gazebosim.org/):
+4. Specify a target pose in [RViz](https://wiki.ros.org/rviz), plan in 
+[MoveIt](https://moveit.ros.org/) using [OMPL](https://ompl.kavrakilab.org/) 
+and execute a plan in [Gazebo](https://gazebosim.org/):
 
-`roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
+```bash
+make gazebo-moveit
+```
 
+5. Run MoveIt on the actual robot:
 
+* Make sure read/write access to `/dev/ttyUSB0` 
+(assuming that `/dev/ttyUSB0` is your 
+[dynamixel bus](http://support.robotis.com/en/product/auxdevice/interface/usb2dxl_manual.htm) 
+address).
+The following make target will start everything needed to plan and
+execute the plan on the actual robot:
 
-### <a name="tutorial"></a>5. Tutorial
+```bash
+make robot-moveit
+```
+
+* Alternatively, it is possible to launch the same functionality
+  separately (e.g. for debugging purposes):
+
+In a docker container we run a `controller_manager.py` script from `dynamixel` 
+package that queries the stepper motors on the bus and initializes them. 
+We logically separate motors 0-6 for the arm (or the *manipulator* planning group) 
+and the stepper motor 7 for the gripper (the *gripper* planning group). 
+We start initialization with the manipulator planning group:
+
+```bash
+make robot-manipulator-manager
+```
+
+In a separate terminal we launch a second docker container which spawns 
+controllers that would activate the manipulator joints (i.e. motors 0-6 on the bus):
+
+```bash
+make robot-manipulator-controller-spawner 
+```
+
+In a separate terminal, we launch additional docker containers to launch `controller_manager.py` and
+`controller_spawner` for the arm gripper:
+
+```bash
+make robot-gripper-manager
+```
+
+```bash
+make robot-gripper-controller-spawner
+```
+
+Finally, in an additional docker container we launch MoveIt:
+
+```bash
+make robot-moveit-movegroup
+```
+
+### <a name="tutorial-host"/>Tutorial on the host
+
+In this tutorial the steps, mentioned for the docker are shown, with the 
+packages and launch files one need to launch to achieve the same outcome 
+as in the tutorial above. Feel free to skip this section completely.
 
 1. Visualize the URDF model in RViz:
 
@@ -197,7 +262,9 @@ roslaunch cyton_gamma_300_description urdf_in_rviz.launch
 
 2. Spawn the URDF model in Gazebo:
 
-`roslaunch cyton_gamma_300_gazebo gazebo_world.launch`
+```bash
+roslaunch cyton_gamma_300_gazebo gazebo_world.launch
+```
 
 The model is subject to gravity forces and falls down from its original position.
 
@@ -207,28 +274,30 @@ in Gazebo simulation:
 
 * E.g. `JointPositionController` from `effort_controllers`:
 
-`roslaunch cyton_gamma_300_controllers gazebo_effort_controllers.launch`
+```bash
+roslaunch cyton_gamma_300_controllers gazebo_effort_controllers.launch
+```
 
 * Or another example of `JointPositionController` from `position_controllers`:
 
-`roslaunch cyton_gamma_300_controllers gazebo_position_controllers.launch`
+```bash
+roslaunch cyton_gamma_300_controllers gazebo_position_controllers.launch
+```
 
 * `JointTrajectoryController` from `position_controllers` allows to control groups 
 of joints:
 
-`roslaunch cyton_gamma_300_controllers gazebo_joint_trajectory_controllers.launch`
+```bash
+roslaunch cyton_gamma_300_controllers gazebo_joint_trajectory_controllers.launch
+```
 
 4. Specify a target pose in [RViz](http://wiki.ros.org/rviz), plan in 
 [MoveIt!](http://moveit.ros.org/) using [OMPL](http://ompl.kavrakilab.org/) 
 and execute a plan in [Gazebo](http://gazebosim.org/):
 
-`roslaunch cyton_gamma_300_controllers gazebo_moveit.launch`
-
-
-
-
-
-
+```bash
+roslaunch cyton_gamma_300_controllers gazebo_moveit.launch
+```
 
 5. Run MoveIt on the actual robot:
 
@@ -270,10 +339,11 @@ Finally, we bring up MoveIt:
 `roslaunch cyton_gamma_300_controllers robot_moveit_movegroup.launch`
 
 
-### <a name="related"></a>6. Related Sources
+### <a name="related"/>Related Sources
 
 [András Fekete](https://github.com/bandi13) pioneered in his 
-[work](https://bandilabs.home.blog/2014/11/13/get-cyton-gamma-300-working-ros/) 
+[blog](https://bandilabs.home.blog/2014/11/13/get-cyton-gamma-300-working-ros/)
+and [repo](https://github.com/bandi13/cyton_gamma_300_ROS)
 migrating Cyton Gamma 300 arm to open source software
 from manufacturer's proprietary one. I must confess that I was not able to
 run his code due to some errors, still he was a source of inspirations 
@@ -289,7 +359,7 @@ and
 the repositories for running the actual robot using MoveIt, 
 but did not include Gazebo support for simulations of Cyton Gamma 300.
 
-### <a name="rationale"></a>7. Rationale
+### <a name="rationale"/>Rationale
 
 As already quite a lot of related sources exist on the
 [github](https://github.com/search?utf8=%E2%9C%93&q=cyton+gamma+300), 
@@ -298,7 +368,7 @@ the goal is
 (ii) to document the working setup for the current version of ROS,
 (iii) package dependencies in docker.
 
-### <a name="maintainer"></a>8. Maintainer
+### <a name="maintainer"/>Maintainer
 
 [Dr. Konstantin Selyunin](https://selyunin.github.io/), for
 suggestions/questions/comments please contact: selyunin [dot] k [dot] v [at] gmail [dot] com
