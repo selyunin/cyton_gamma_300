@@ -1,13 +1,12 @@
-Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt) 
-============================================
+# Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt)
 
 1. [Description](#description)
 1. [Packages](#packages)
 1. [Installation](#installation)
-    1. [Installation using Docker](#installation-docker)
+    1. [Installation using docker](#installation-docker)
     1. [Installation on the host](#installation-host)
 1. [Quick start](#quick-start)
-    1. [Quick start with Docker](#quick-start-docker)
+    1. [Quick start using docker](#quick-start-docker)
     1. [Quick start on the host](#quick-start-host)
 1. [Tutorial](#tutorial)
     1. [Tutorial using docker](#tutorial-docker)
@@ -17,7 +16,7 @@ Cyton Gamma 300 (GazeboSim/RealRobot + MoveIt)
 1. [Maintainer](#maintainer)
 
 
-### <a name="description"></a>1. Description
+## <a name="description"/>Description
 
 The project includes a collection of [ROS](https://www.ros.org/) 
 packages to simulate and actuate the **Cyton Gamma 300** 7-DOF robotic arm from Robai 
@@ -27,14 +26,13 @@ the [MoveIt](https://moveit.ros.org/) is used as a motion planning framework.
 The code has been tested with the [melodic](https://wiki.ros.org/melodic) 
 distribution of ROS (as of May 2023).
 
-
-### <a name="packages"></a>2. Packages
+### <a name="packages"/>Packages
 
 * [`cyton_gamma_300_controllers`](./src/cyton_gamma_300_controllers):
-  controllers for actuating gazebo model or the real robot using MoveIt framework;
+  controllers for actuating gazebo model or the real robot using MoveIt;
 
 * [`cyton_gamma_300_description`](./src/cyton_gamma_300_description):
-  [xacro](http://wiki.ros.org/xacro) description of the [URDF](http://wiki.ros.org/urdf) robot model;
+  [xacro](https://wiki.ros.org/xacro) description of the [URDF](https://wiki.ros.org/urdf) robot model;
 
 * [`cyton_gamma_300_gazebo`](./src/cyton_gamma_300_gazebo):
   gazebo simulation of the robot;
@@ -42,8 +40,8 @@ distribution of ROS (as of May 2023).
 * [`cyton_gamma_300_moveit`](./src/cyton_gamma_300_moveit):
   configuration files of the setup assistant to enable MoveIt functionality.
 
-The aforementioned `cyton_gamma_300_*` packages enable 
-motion planning for the Cyton Gamma 300 arm. 
+The aforementioned `cyton_gamma_300_*` packages enable motion 
+planning for the Cyton Gamma 300 arm. 
 These packages are **not** self-contained and the dependencies should
 be met to successfully run the software.
 
