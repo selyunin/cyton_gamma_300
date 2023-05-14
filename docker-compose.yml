@@ -102,3 +102,15 @@ services:
     command: >
       bash -c "source /catkin_ws/devel/setup.bash &&
                roslaunch cyton_gamma_300_controllers robot_moveit.launch"
+
+  cyton-gamma-robot-joint-trajectory-controller:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers robot_joint_trajectory_controller.launch"
+
+  cyton-gamma-moveit-setup-assistant:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch moveit_setup_assistant setup_assistant.launch"
