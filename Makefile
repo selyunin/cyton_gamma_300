@@ -39,7 +39,7 @@ urdf-in-gazebo: ## Visualize URDF mesh in gazebo simulator
 .PHONY: joint-effort-controller
 joint-effort-controller: ## Use joint_effort_controller from ros_control to steer the arm in Gazebo
 	xhost +
-	docker compose run --rm cyton-gamma-joint-position-controller
+	docker compose run --rm cyton-gamma-joint-effort-controller
 
 .PHONY: joint-position-controller
 joint-position-controller: ## Use joint_position_controller from ros_control to steer the arm in Gazebo
@@ -55,6 +55,32 @@ joint-trajectory-controller: ## Use joint_state_controller from ros_control to s
 gazebo-moveit: ## Launch MoveIt with Gazebo and joint_state_controller
 	xhost +
 	docker compose run --rm cyton-gamma-gazebo-moveit
+
+.PHONY: robot-manipulator-manager
+robot-manipulator-manager: ## Launch manipulator manager
+	xhost +
+	docker compose run --rm cyton-gamma-robot-manipulator-manager
+
+.PHONY: robot-manipulator-controller-spawner
+robot-manipulator-controller-spawner: ## Launch controller spawner for manipulator
+	xhost +
+	docker compose run --rm cyton-gamma-robot-manipulator-controller-spawner
+
+.PHONY: robot-gripper-manager
+robot-gripper-manager: ## Launch gripper manager
+	xhost +
+	docker compose run --rm cyton-gamma-robot-gripper-manager
+
+.PHONY: robot-gripper-controller-spawner
+robot-gripper-controller-spawner: ## Launch controller spawner for gripper
+	xhost +
+	docker compose run --rm cyton-gamma-robot-manipulator-controller-spawner
+
+
+.PHONY: robot-moveit-movegroup
+robot-moveit-movegroup: ## Launch MoveIt move_group
+	xhost +
+	docker compose run --rm cyton-gamma-robot-moveit-movegroup
 
 .PHONY: robot-moveit
 robot-moveit: ## Launch MoveIt with physical robot and dynamixel controllers

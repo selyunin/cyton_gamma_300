@@ -9,7 +9,7 @@ services:
       dockerfile: Dockerfile
       target: cyton-gamma-300
     volumes:
-      - .:/src
+      - ./src/:/catkin_ws/src/
       - /dev:/dev
       - /var/run/dbus/:/var/run/dbus
       - /run/udev:/run/udev:ro
@@ -78,6 +78,24 @@ services:
     command: >
       bash -c "source /catkin_ws/devel/setup.bash &&
                roslaunch cyton_gamma_300_controllers robot_manipulator_controller_spawner.launch"
+
+  cyton-gamma-robot-gripper-manager:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers robot_gripper_manager.launch"
+
+  cyton-gamma-robot-gripper-controller-spawner:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers robot_gripper_controller_spawner.launch"
+
+  cyton-gamma-robot-moveit-movegroup:
+    <<: *cyton-gamma
+    command: >
+      bash -c "source /catkin_ws/devel/setup.bash &&
+               roslaunch cyton_gamma_300_controllers robot_moveit_movegroup.launch"
 
   cyton-gamma-robot-moveit:
     <<: *cyton-gamma
