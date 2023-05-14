@@ -9,8 +9,8 @@
         port_0:
           port_name: "/dev/ttyUSB0"
           baud_rate: 1000000
-          min_motor_id: 9
-          max_motor_id: 9
+          min_motor_id: 7
+          max_motor_id: 7
           update_rate: 20
     </rosparam>
   </node>
