@@ -381,4 +381,4 @@ the goal is
 ### <a name="maintainer"/>Maintainer
 
 [Dr. Konstantin Selyunin](https://selyunin.github.io/), for
-suggestions/questions/comments please contact: selyunin [dot] k [dot] v [at] gmail [dot] com
+suggestions / questions / comments contact: selyunin [dot] k [dot] v [at] gmail [dot] com
